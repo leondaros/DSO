@@ -11,4 +11,44 @@ package br.ufsc.ine5612.entidades;
  */
 public class Mesa {
     
+    private int numero;
+    private Comanda comanda;
+    private Funcionario funcionario;
+    private boolean ocupada;
+
+    public Mesa(int numero) {
+        this.numero = numero;
+    }
+    
+    public boolean isOcupada() {
+        return ocupada;
+    }
+
+    public void setOcupada(boolean ocupada) {
+        this.ocupada = ocupada;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Comanda getComanda() {
+        return comanda;
+    }
+
+    public void setComanda(Comanda comanda) {
+        this.comanda = comanda;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
 }
