@@ -14,26 +14,17 @@ import java.util.ArrayList;
 public class Comanda {
     
    private ArrayList<Produto> produtos;
-   private float precoTotal;
-   private boolean contaFechada;
+   private double precoTotal;
 
     public Comanda() {
         produtos= new ArrayList<>();
     }
-
-    public boolean isContaFechada() {
-        return contaFechada;
-    }
-
-    public void setContaFechada(boolean contaFechada) {
-        this.contaFechada = contaFechada;
-    }
     
-    public float getPrecoTotal() {
+    public double getPrecoTotal() {
         return precoTotal;
     }
 
-    public void setPrecoTotal(float precoTotal) {
+    public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;
     }
    

@@ -12,10 +12,10 @@ package br.ufsc.ine5612.entidades;
 public class Produto {
     
     private String titulo;
-    private float preco;
+    private double preco;
     private Categoria c;
 
-    public Produto(String titulo, float preco, Categoria c) {
+    public Produto(String titulo, double preco, Categoria c) {
         this.titulo = titulo;
         this.preco = preco;
         this.c = c;
@@ -39,11 +39,11 @@ public class Produto {
         this.titulo = titulo;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
     
