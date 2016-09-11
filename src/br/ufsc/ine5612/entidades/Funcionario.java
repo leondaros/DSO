@@ -10,19 +10,17 @@ package br.ufsc.ine5612.entidades;
  * @author aluno
  */
 public class Funcionario {
-    
     private String nome;
     private String login;
     private String senha;
     private boolean gerente;
-    private String cpf;
 
-    public Funcionario(String nome, String login, String senha, boolean gerente, String cpf) {
+
+    public Funcionario(String nome, String login, String senha, boolean gerente) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
         this.gerente = gerente;
-        this.cpf = cpf;
     }
     
     public boolean isGerente() {
@@ -31,14 +29,6 @@ public class Funcionario {
 
     public void setGerente(boolean gerente) {
         this.gerente = gerente;
-    }
-    
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
     
     public String getNome() {

@@ -8,6 +8,7 @@ import br.ufsc.ine5612.entidades.Comanda;
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Mesa;
 import br.ufsc.ine5612.entidades.Produto;
+import br.ufsc.ine5612.persistencia.ComandaDAO;
 /**
  *
  * @author aluno
@@ -15,60 +16,59 @@ import br.ufsc.ine5612.entidades.Produto;
 public class ControladorComanda {
     private final int nMesas = 4;
     private Mesa[] mesas;
-    private Mesa mesa;
+    private ComandaDAO comandaDAO;
+    
     public ControladorComanda() {
         mesas = new Mesa[nMesas];
     }
     public Mesa selecionaMesa(int i) {
-        mesa = mesas[i - 1];
         return mesas[i - 1];
     }
-    public void abreMesa(Funcionario f, int i) {
-        mesa = new Mesa(i);
-        mesa.setFuncionario(f);
-        mesa.setOcupada(true);
-        mesa.setComanda(new Comanda());
-        mesas[i - 1] = mesa;
+    public boolean abreMesa(Funcionario f, int num) {
+        if(num <= nMesas){
+            mesas[num-1] = new Mesa(num);
+            mesas[num-1].setFuncionario(f);
+            mesas[num-1].setOcupada(true);
+            Comanda comanda = new Comanda();
+            mesas[num-1].setComanda(comanda);
+            comandaDAO.put(comanda);
+            return true;
+        }
+        return false;
     }
-    public void encerrerMesa(Funcionario f,Mesa m) {
+    public void encerrarMesa(Funcionario f, int num) {
         //apenas gerente
         if (f.isGerente()) {
-            m.setOcupada(false);
-            m.setComanda(null);
-            m.setFuncionario(null);
+            mesas[num-1].setOcupada(false);
+            mesas[num-1].setComanda(null);
+            mesas[num-1].setFuncionario(null);
         }
     }
-    public void adicionaPedido(Produto p) {
-        mesa.getComanda().getProdutos().add(p);
-        mesa.getComanda().setPrecoTotal(mesa.getComanda().getPrecoTotal() + p.getPreco());
+    public void adicionaPedido(Produto produto, int num) {
+        mesas[num-1].getComanda().getProdutos().add(produto);
+        mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
     }
-    public void cancelaPedido(Produto p) {
+    public void cancelaPedido(Produto p, int num) {
         //apenas gerente
-        Comanda c = mesa.getComanda();
+        Comanda c = mesas[num-1].getComanda();
         for (int i = 0; i < c.getProdutos().size(); i++) {
             if (c.getProdutos().get(i).equals(p)) {
-                mesa.getComanda().getProdutos().remove(i);
-                mesa.getComanda().setPrecoTotal(mesa.getComanda().getPrecoTotal() - p.getPreco());
+               c.getProdutos().remove(i);
+               c.setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() - p.getPreco());
             }
         }
     }
-    public void imprimeComanda(Comanda c) {
+    public void imprimeComanda(int num) {
     }
-    public void adicionaCortesia(Comanda c) {
+    public void adicionaCortesia(int num) {
         //apensa gerente
     }
-    public void armazenaComanda(Comanda c) {
-    }
+
     public Mesa[] getMesas() {
         return mesas;
     }
-    public void setMesas(Mesa[] mesas) {
-        this.mesas = mesas;
-    }
-    public Mesa getMesa() {
-        return mesa;
-    }
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
+ 
+    public ComandaDAO getComanda() {
+        return comandaDAO;
     }
 }
