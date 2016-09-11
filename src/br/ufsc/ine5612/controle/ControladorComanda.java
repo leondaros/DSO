@@ -24,7 +24,7 @@ public class ControladorComanda {
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];
     }
-    public boolean abreMesa(Funcionario f, int num) {
+    public Mesa abreMesa(Funcionario f, int num) {
         if(num <= nMesas){
             mesas[num-1] = new Mesa(num);
             mesas[num-1].setFuncionario(f);
@@ -32,9 +32,9 @@ public class ControladorComanda {
             Comanda comanda = new Comanda();
             mesas[num-1].setComanda(comanda);
             comandaDAO.put(comanda);
-            return true;
+            return mesas[num-1];
         }
-        return false;
+        return null;
     }
     public void encerrarMesa(Funcionario f, int num) {
         //apenas gerente

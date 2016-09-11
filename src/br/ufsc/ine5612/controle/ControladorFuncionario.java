@@ -15,7 +15,6 @@ import java.util.Set;
  */
 public class ControladorFuncionario {
     private FuncionarioDAO funcionarioDAO;
-    private Funcionario funcionarioAtual;
 
     public ControladorFuncionario() {
         this.funcionarioDAO = new FuncionarioDAO();
