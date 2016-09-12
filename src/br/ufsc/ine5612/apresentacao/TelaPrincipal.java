@@ -20,7 +20,7 @@ public class TelaPrincipal {
     
     private ControladorFuncionario controladorFuncionario;
     private ControladorComanda controladorComanda;
-    Funcionario f = new Funcionario("nome","nome","senha", true, "123456789");
+    Funcionario f = new Funcionario("nome","nome","senha", true);
             
     public TelaPrincipal() {
         teclado = new Scanner(System.in);

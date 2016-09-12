@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/entidades/Menu.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/controle/ControladorFuncionario.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/apresentacao/MesasJFrame.java</file>
@@ -13,6 +14,19 @@
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/SistemaComanda.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/apresentacao/LoginJFrame.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/controle/ControladorComanda.java</file>
+=======
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Comanda.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/persistencia/ProdutoDAO.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Usuario.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Produto.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/controle/ControladorComanda.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/persistencia/FuncionarioDAO.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/controle/ControladorMenu.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/controle/ControladorFuncionario.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/persistencia/ComandaDAO.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Funcionario.java</file>
+            <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/apresentacao/MesasJFrame.java</file>
+>>>>>>> refs/remotes/junakayama/dev
         </group>
     </open-files>
 </project-private>

@@ -6,42 +6,49 @@
 package br.ufsc.ine5612.controle;
 
 import br.ufsc.ine5612.entidades.Funcionario;
-import java.util.ArrayList;
+import br.ufsc.ine5612.persistencia.FuncionarioDAO;
+import java.util.Set;
 
 /**
  *
  * @author aluno
  */
 public class ControladorFuncionario {
- 
-    
-    private ArrayList<Funcionario> funcionarios;
-    private Funcionario usuario;
+    private FuncionarioDAO funcionarioDAO;
 
     public ControladorFuncionario() {
-        this.funcionarios = new ArrayList<>();
+        this.funcionarioDAO = new FuncionarioDAO();
     }
 
-    public Funcionario getUsuario() {
-        return usuario;
+    public FuncionarioDAO getFuncionarios() {
+        return funcionarioDAO;
     }
 
-    public void setUsuario(Funcionario usuario) {
-        this.usuario = usuario;
-    }
-    
     public boolean validaUsuario(String login,String senha){
-        return true;
-    }
-
-    public ArrayList<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
+        int verificador = 0;
+        Integer log = Integer.parseInt(login);
+        Set<Integer> chaves = funcionarioDAO.getCache().keySet();
+        for(Integer chave: chaves){
+            if(chave.equals(log)){
+                Funcionario funcionario = funcionarioDAO.get(chave);
+                if(funcionario.getSenha().equals(senha)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
-    
-    
+    public Funcionario registraUsuario(String nome, String login, String senha, boolean gerente){
+        Integer log = Integer.parseInt(login);
+        Set<Integer> chaves = funcionarioDAO.getCache().keySet();
+        for(Integer chave: chaves){
+            if(chave.equals(log)){
+                return null; //login ja existe
+            }
+        }
+        Funcionario funcionario = new Funcionario(nome, login, senha, gerente);
+        funcionarioDAO.put(funcionario);
+        return funcionario;
+    }    
 }
