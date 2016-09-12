@@ -5,6 +5,9 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 384404f5b43a0bc22bcdd96c91a941664f41f007
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/entidades/Menu.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/controle/ControladorFuncionario.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/apresentacao/MesasJFrame.java</file>
@@ -16,8 +19,11 @@
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/apresentacao/LoginJFrame.java</file>
             <file>file:/C:/Users/Leon/Documents/GitHub/DSO/src/br/ufsc/ine5612/controle/ControladorComanda.java</file>
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> refs/remotes/junakayama/dev
+=======
+>>>>>>> 384404f5b43a0bc22bcdd96c91a941664f41f007
             <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Comanda.java</file>
             <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/persistencia/ProdutoDAO.java</file>
             <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Usuario.java</file>
@@ -30,8 +36,11 @@
             <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/entidades/Funcionario.java</file>
             <file>file:/Users/julia/Documents/UFSC/DSO2/Darayama/src/br/ufsc/ine5612/apresentacao/MesasJFrame.java</file>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refs/remotes/junakayama/dev
 =======
+=======
+>>>>>>> 384404f5b43a0bc22bcdd96c91a941664f41f007
 >>>>>>> refs/remotes/junakayama/dev
         </group>
     </open-files>
