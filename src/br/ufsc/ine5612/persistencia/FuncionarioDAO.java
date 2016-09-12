@@ -41,8 +41,8 @@ public class FuncionarioDAO {
     }
     
     public void put(Funcionario funcionario) {
-        Integer cpf=Integer.parseInt(funcionario.getCpf());
-        cacheFuncionarios.put(cpf, funcionario);
+        Integer login = Integer.parseInt(funcionario.getLogin());
+        cacheFuncionarios.put(login, funcionario);
         persist();
         
     }

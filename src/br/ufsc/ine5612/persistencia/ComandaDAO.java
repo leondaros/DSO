@@ -28,11 +28,6 @@ public class ComandaDAO {
     public ComandaDAO() {
         cacheComandas = new HashMap<>();
         load();
-        
-//        cacheComandas.values();
-//        for(Comanda comanda: cacheComandas.values()){
-//            System.out.println(comanda.getPrecoTotal()); //mudar issoooooo
-//        }
     }
     
 
@@ -44,8 +39,12 @@ public class ComandaDAO {
        cacheComandas.put(comanda.getCodigo(), comanda);
        persist();
     }
+   
+    public Integer gerarCodigoComanda(){
+        return cacheComandas.keySet().size()+1;
+    }
 
-    
+   
     public void remover(Integer codigo){
         cacheComandas.remove(codigo);
         persist();

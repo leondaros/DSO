@@ -10,23 +10,15 @@ package br.ufsc.ine5612.entidades;
  * @author aluno
  */
 public class Produto {
-    private Integer codigo;
     private String titulo;
     private double preco;
     private Categoria c;
+    private Integer codigo;
 
     public Produto(String titulo, double preco, Categoria c) {
         this.titulo = titulo;
         this.preco = preco;
         this.c = c;
-    }
-    
-    public Integer getCodigo(){
-        return codigo;
-    }
-    
-    public void setCodigo(Integer codigo){
-        this.codigo = codigo;
     }
 
     public Categoria getC() {
@@ -37,7 +29,13 @@ public class Produto {
         this.c = c;
     }
     
-    
+        public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
     
     public String getTitulo() {
         return titulo;

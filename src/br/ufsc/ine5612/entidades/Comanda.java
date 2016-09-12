@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author aluno
  */
 public class Comanda {
-    
    private ArrayList<Produto> produtos;
    private double precoTotal;
    private Integer codigo;
@@ -21,20 +20,20 @@ public class Comanda {
         produtos= new ArrayList<>();
     }
     
-    public Integer getCodigo(){
-        return codigo;
-    }
-    
-    public void setCodigo(Integer codigo){
-        this.codigo = codigo;
-    }
-    
     public double getPrecoTotal() {
         return precoTotal;
     }
 
     public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;
+    }
+    
+        public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
    
     public ArrayList<Produto> getProdutos() {
