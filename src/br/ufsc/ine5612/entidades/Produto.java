@@ -20,7 +20,7 @@ public class Produto {
         this.preco = preco;
         this.c = c;
     }
-    
+
     public Integer getCodigo(){
         return codigo;
     }
@@ -37,7 +37,7 @@ public class Produto {
         this.c = c;
     }
     
-    
+
     
     public String getTitulo() {
         return titulo;

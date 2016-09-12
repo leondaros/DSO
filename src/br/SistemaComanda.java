@@ -44,28 +44,27 @@ public class SistemaComanda {
         Funcionario funcionario = new Funcionario("Trabalhadô","login","senha",true,"123456789");
         Funcionario funcionario1 = new Funcionario("Trabalhadô1","login","senha",false,"987654321");
 
-        controladorFuncionario.setUsuario(funcionario);
         
         controladorComanda.abreMesa(funcionario,1);
         System.out.println("abriu mesa");
         
-        controladorComanda.adicionaPedido(produto);
+        controladorComanda.adicionaPedido(produto, 1);
         System.out.println("adiciona produto0");
-        controladorComanda.adicionaPedido(produto1);
+        controladorComanda.adicionaPedido(produto1, 2);
         System.out.println("adiciona produto1");
-        controladorComanda.adicionaPedido(produto2);
+        controladorComanda.adicionaPedido(produto2, 1);
         System.out.println("adiciona produto2");
-        controladorComanda.adicionaPedido(produto3);
+        controladorComanda.adicionaPedido(produto3, 3);
         System.out.println("adiciona produto3");
-        controladorComanda.adicionaPedido(produto4);
+        controladorComanda.adicionaPedido(produto4, 4);
         System.out.println("adiciona produto4");
         
-        controladorComanda.cancelaPedido(produto);
+        controladorComanda.cancelaPedido(produto, 1);
         System.out.println("removeu produto");
         
-        for (Produto p : controladorComanda.getMesa().getComanda().getProdutos()) {
-            System.out.println(""+p.getTitulo());
-        }
+//        for (Produto p : controladorComanda.getMesa().getComanda().getProdutos()) {
+//            System.out.println(""+p.getTitulo());
+//        }
         
         
     }
