@@ -20,6 +20,7 @@ public class ControladorFuncionario {
 
     public ControladorFuncionario() {
         this.funcionarios = new ArrayList<>();
+        criarFuncionarios();
     }
     
     public void adicionarFuncionario(Funcionario funcionario){
@@ -35,6 +36,10 @@ public class ControladorFuncionario {
         adicionarFuncionario(funcionario2);
         adicionarFuncionario(funcionario3);
         adicionarFuncionario(funcionario4);
+    }
+    
+    public ArrayList<Funcionario> getFuncionarios(){
+        return funcionarios;
     }
 
 //    public FuncionarioDAO getFuncionarios() {
