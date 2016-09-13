@@ -44,15 +44,17 @@ public class ProdutoDAO {
        cacheProdutos.put(produto.getCodigo(), produto);
        persist();
     }
-
+    public Integer gerarCodigoProduto(){
+        return cacheProdutos.keySet().size()+1;
+    }
     
     public void remover(Integer codigo){
         cacheProdutos.remove(codigo);
         persist();
     }
     
-    public Produto get (Integer codigoComanda){
-        return cacheProdutos.get(codigoComanda);
+    public Produto get (Integer codigoProduto){
+        return cacheProdutos.get(codigoProduto);
     }
     public void load(){
         try {
