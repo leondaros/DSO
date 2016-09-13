@@ -31,22 +31,31 @@ public class ControladorComanda {
             mesas[num-1].setOcupada(true);
             Comanda comanda = new Comanda();
             mesas[num-1].setComanda(comanda);
-            comandaDAO.put(comanda);
             return mesas[num-1];
         }
         return null;
     }
-    public void encerrarMesa(Funcionario f, int num) {
+    
+    public void encerrarMesa(int num){
+        mesas[num-1].getComanda().setHabilitaPedito(false);
+    }
+    public void receberPagamento(Funcionario f, int num) {
         //apenas gerente
         if (f.isGerente()) {
             mesas[num-1].setOcupada(false);
+            Comanda comanda = mesas[num-1].getComanda();
+            comandaDAO.put(comanda);
             mesas[num-1].setComanda(null);
             mesas[num-1].setFuncionario(null);
         }
     }
+    
     public void adicionaPedido(Produto produto, int num) {
-        mesas[num-1].getComanda().getProdutos().add(produto);
-        mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
+        if(mesas[num-1].getComanda().getHabilitaPedito()){
+            mesas[num-1].getComanda().getProdutos().add(produto);
+            mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
+        }
+        //se não, a comanda está fechada e não dá
     }
     public void cancelaPedido(Produto p, int num) {
         //apenas gerente
@@ -60,8 +69,12 @@ public class ControladorComanda {
     }
     public void imprimeComanda(int num) {
     }
-    public void adicionaCortesia(int num) {
-        //apensa gerente
+    public void adicionaCortesia(Funcionario funcionario, Produto produto, int num) {
+        if (funcionario.isGerente()) {
+            if(mesas[num-1].getComanda().getHabilitaPedito()){
+                mesas[num-1].getComanda().getProdutos().add(produto);
+            }
+        }
     }
 
     public Mesa[] getMesas() {
@@ -71,4 +84,5 @@ public class ControladorComanda {
     public ComandaDAO getComanda() {
         return comandaDAO;
     }
+
 }

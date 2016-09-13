@@ -44,8 +44,7 @@ public class SistemaComanda {
         Produto produto3 = new Produto("Comida3",10.50,Categoria.COMIDA);
         Produto produto4 = new Produto("Comida4",10.50,Categoria.COMIDA);
         
-        Funcionario funcionario = controladorFuncionario.registraUsuario("Trabalhadô","login","senha",true);
-        Funcionario funcionario1 = controladorFuncionario.registraUsuario("Trabalhadô1","login","senha",false);
+        Funcionario funcionario = controladorFuncionario.getFuncionarios().get(0);
 
         
         controladorComanda.abreMesa(funcionario,1);
