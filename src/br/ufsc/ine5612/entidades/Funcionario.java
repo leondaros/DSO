@@ -5,11 +5,13 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author aluno
  */
-public class Funcionario {
+public class Funcionario implements Serializable{
     private String nome;
     private String login;
     private String senha;

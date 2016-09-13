@@ -5,11 +5,13 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author aluno
  */
-public class Produto {
+public class Produto implements Serializable{
     private String titulo;
     private double preco;
     private Categoria c;

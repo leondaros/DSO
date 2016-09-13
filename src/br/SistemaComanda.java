@@ -5,10 +5,11 @@
  */
 package br;
 
-import br.ufsc.ine5612.apresentacao.ComandaJFrame;
+import br.ufsc.ine5612.apresentacao.AdicionaProdutoJFrame;
 import br.ufsc.ine5612.apresentacao.LoginJFrame;
 import br.ufsc.ine5612.apresentacao.MenuJFrame;
 import br.ufsc.ine5612.apresentacao.MesasJFrame;
+import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorFuncionario;
 import br.ufsc.ine5612.entidades.Categoria;
@@ -27,11 +28,13 @@ public class SistemaComanda {
     
     LoginJFrame frame;
     MesasJFrame mesasJFrame;
+    PedidosMesaJFrame frame1;
     
     public static void main(String[] args) {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
-        (new LoginJFrame()).setVisible(true);
+
+        (new PedidosMesaJFrame()).setVisible(true);
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorComanda controladorComanda = new ControladorComanda();
         
