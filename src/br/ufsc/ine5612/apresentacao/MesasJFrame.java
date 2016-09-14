@@ -60,25 +60,25 @@ public class MesasJFrame extends javax.swing.JFrame {
 
         container.setLayout(new FlowLayout());
 
-        buttonMesa1 = new JButton("Mesa 1");
+        buttonMesa1 = new JButton("1");
         buttonMesa1.setPreferredSize(new Dimension(230, 20));
         buttonMesa1.setActionCommand(buttonMesa1.getText());
         container.add(buttonMesa1);
         buttonMesa1.addActionListener(gerenciadorEventos);
 
-        buttonMesa2 = new JButton("Mesa 2");
+        buttonMesa2 = new JButton("2");
         buttonMesa2.setPreferredSize(new Dimension(230, 20));
         buttonMesa2.setActionCommand(buttonMesa2.getText());
         container.add(buttonMesa2);
         buttonMesa2.addActionListener(gerenciadorEventos);
 
-        buttonMesa3 = new JButton("Mesa 3");
+        buttonMesa3 = new JButton("3");
         buttonMesa3.setPreferredSize(new Dimension(230, 20));
         buttonMesa3.setActionCommand(buttonMesa3.getText());
         container.add(buttonMesa3);
         buttonMesa3.addActionListener(gerenciadorEventos);
 
-        buttonMesa4 = new JButton("Mesa 4");
+        buttonMesa4 = new JButton("4");
         buttonMesa4.setPreferredSize(new Dimension(230, 20));
         buttonMesa4.setActionCommand(buttonMesa4.getText());
         container.add(buttonMesa4);
@@ -92,27 +92,24 @@ public class MesasJFrame extends javax.swing.JFrame {
 
             if (e.getActionCommand().equals(buttonMesa1.getActionCommand())) {
 
-//                principal.mostraCadastraClienteContrato();
                 controladorPrincipal.telaPedidosMesa();
-//                comanda.abreMesa(f, NORMAL);
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
 
             } else if (e.getActionCommand().equals(buttonMesa2.getActionCommand())) {
 
-//                principal.mostraCadastraClienteContrato();
                 controladorPrincipal.telaPedidosMesa();
-//                comanda.abreMesa(f, NORMAL);
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
 
             } else if (e.getActionCommand().equals(buttonMesa3.getActionCommand())) {
 
-//                principal.mostraCadastraClienteContrato();
                 controladorPrincipal.telaPedidosMesa();
-//                comanda.abreMesa(f, NORMAL);
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
 
             } else if (e.getActionCommand().equals(buttonMesa4.getActionCommand())) {
 
 //                principal.mostraCadastraClienteContrato();
                 controladorPrincipal.telaPedidosMesa();
-//                comanda.abreMesa(f, NORMAL);
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
 
             }
 
