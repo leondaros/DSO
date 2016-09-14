@@ -21,6 +21,7 @@ public class ControladorMenu {
     
     public ControladorMenu(){
         menu = new Menu();
+        adicionarProdutos();
     }
     
 //    public Produto adicionarProduto(String titulo, double preco, Categoria c){

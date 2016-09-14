@@ -5,6 +5,9 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Leon
@@ -14,6 +17,10 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     /**
      * Creates new form PedidosMesaJFrame
      */
+    
+    private GerenciadorEventos gerenciadorEventos;
+
+    
     public PedidosMesaJFrame() {
         initComponents();
     }
@@ -122,41 +129,54 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PedidosMesaJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PedidosMesaJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PedidosMesaJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PedidosMesaJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PedidosMesaJFrame().setVisible(true);
-            }
-        });
+    private void inicializarComponentes() {
+    
+        jButton1.setActionCommand(jButton1.getText());
+        jButton1.addActionListener(gerenciadorEventos);
+        jButton2.setActionCommand(jButton2.getText());
+        jButton2.addActionListener(gerenciadorEventos);
+        jButton3.setActionCommand(jButton3.getText());
+        jButton3.addActionListener(gerenciadorEventos);
+        jButton4.setActionCommand(jButton4.getText());
+        jButton4.addActionListener(gerenciadorEventos);
+        jButton5.setActionCommand(jButton5.getText());
+        jButton5.addActionListener(gerenciadorEventos);
+        jButton6.setActionCommand(jButton6.getText());
+        jButton6.addActionListener(gerenciadorEventos);
+    
+    }
+    
+    private class GerenciadorEventos implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+//            }
+
+        }
     }
 
+    public GerenciadorEventos getGerenciadorEventos() {
+        return gerenciadorEventos;
+    }
+
+    public void setGerenciadorEventos(GerenciadorEventos gerenciadorEventos) {
+        this.gerenciadorEventos = gerenciadorEventos;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
@@ -171,6 +191,7 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 
+    
 
 
 }

@@ -7,7 +7,7 @@ package br.ufsc.ine5612.apresentacao;
 
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -28,102 +28,96 @@ public class LoginJFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginJFrame
      */
-    
     private Container container;
-    
+
     private JLabel labelTitulo;
     private JLabel labelLogin;
     private JLabel labelSenha;
-    
+
     private JTextField textFieldLogin;
     private JPasswordField textFieldSenha;
-    
+
     private JButton btAcesso;
     private JButton btCadastra;
-    
+    private ControladorPrincipal principal;
     private GerenciadorEventos gerenciadorEventos;
-        
-    public LoginJFrame() {
+
+    public LoginJFrame(ControladorPrincipal principal) {
         initComponents();
         
-        container =  getContentPane();
+        this.principal = principal;
+        container = getContentPane();
         gerenciadorEventos = new GerenciadorEventos();
-        
+
         inicializarComponentes();
-        
-        setSize(400,220);
+
+        setSize(400, 220);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
+
     }
-    
-    private void inicializarComponentes(){
-    
+
+    private void inicializarComponentes() {
+
         container.setLayout(new GridBagLayout());
 
-	GridBagConstraints cts = new GridBagConstraints();
-    
+        GridBagConstraints cts = new GridBagConstraints();
+
         labelTitulo = new JLabel("Darayama - Gerenciamento de Pedidos");
 //        cts.gridx = 0;
 //	cts.gridy = 0;
-        cts.anchor=GridBagConstraints.PAGE_START;
-	cts.fill = GridBagConstraints.BOTH;
-	container.add(labelTitulo,cts);
-        
+        cts.anchor = GridBagConstraints.PAGE_START;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelTitulo, cts);
+
         labelLogin = new JLabel("Login:");
         cts.gridx = 0;
-	cts.gridy = 1;
-	cts.fill = GridBagConstraints.BOTH;
-	container.add(labelLogin, cts);
-        
+        cts.gridy = 1;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelLogin, cts);
+
         labelSenha = new JLabel("Senha:");
         cts.gridx = 0;
-	cts.gridy = 2;
-	cts.fill = GridBagConstraints.BOTH;
-	container.add(labelSenha, cts);
-        
+        cts.gridy = 2;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelSenha, cts);
+
         textFieldLogin = new JTextField();
         textFieldLogin.setPreferredSize(new Dimension(150, 20));
         cts.gridx = 1;
-	cts.gridy = 1;
-	cts.fill = GridBagConstraints.BOTH;
-	container.add(textFieldLogin, cts);
-        
-        textFieldSenha = new JPasswordField() ;
+        cts.gridy = 1;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(textFieldLogin, cts);
+
+        textFieldSenha = new JPasswordField();
         textFieldSenha.setPreferredSize(new Dimension(150, 20));
         cts.gridx = 1;
-	cts.gridy = 2;
-	cts.fill = GridBagConstraints.BOTH;
-	container.add(textFieldSenha, cts);
-                
+        cts.gridy = 2;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(textFieldSenha, cts);
+
         btAcesso = new JButton("Login");
         btAcesso.setActionCommand(btAcesso.getText());
         cts.gridx = 1;
-	cts.gridy = 3;
-        cts.insets = new Insets(15,5, 5, 15);
-	cts.fill = GridBagConstraints.BOTH;
-        container.add(btAcesso,cts);
+        cts.gridy = 3;
+        cts.insets = new Insets(15, 5, 5, 15);
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(btAcesso, cts);
         btAcesso.addActionListener(gerenciadorEventos);
 
-        btCadastra = new JButton("Cadastrar");
-        btCadastra.setActionCommand(btCadastra.getText());
-        cts.gridx = 0;
-	cts.gridy = 3;
-        cts.insets = new Insets(15,5, 5, 15);
-	cts.fill = GridBagConstraints.BOTH;
-        container.add(btCadastra,cts);
-        btAcesso.addActionListener(gerenciadorEventos);
-        
-        
     }
-    
-      private class GerenciadorEventos implements ActionListener{
-    
+
+    private class GerenciadorEventos implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
-    
+
+            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+            }
+
         }
-     }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,7 +146,6 @@ public class LoginJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -17,8 +17,8 @@ import java.util.Set;
 public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
-
-    public ControladorFuncionario() {
+    private ControladorPrincipal principal;
+    public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
         criarFuncionarios();
     }
@@ -36,6 +36,14 @@ public class ControladorFuncionario {
         adicionarFuncionario(funcionario2);
         adicionarFuncionario(funcionario3);
         adicionarFuncionario(funcionario4);
+    }
+
+    public ControladorPrincipal getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(ControladorPrincipal principal) {
+        this.principal = principal;
     }
     
     public ArrayList<Funcionario> getFuncionarios(){

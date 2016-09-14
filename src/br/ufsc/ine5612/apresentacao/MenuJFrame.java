@@ -5,12 +5,16 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author aluno
  */
 public class MenuJFrame extends javax.swing.JFrame {
 
+    private GerenciadorEventos gerenciadorEventos;
         
     public MenuJFrame() {
         
@@ -37,11 +41,11 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Comida:");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Bebida:");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Sobremesa:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -49,26 +53,22 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Adicionar");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Adicionar");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Adicionar");
 
         jLabel4.setText("Menu");
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Encerrar Pedido");
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -83,13 +83,17 @@ public class MenuJFrame extends javax.swing.JFrame {
                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addGap(29, 29, 29))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,6 +126,34 @@ public class MenuJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+     private class GerenciadorEventos implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+////                principal.mostraCadastraClienteContrato();
+//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+////                principal.mostraCadastraClienteContrato();
+//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+////                principal.mostraCadastraClienteContrato();
+//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+////                principal.mostraCadastraClienteContrato();
+//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+////                principal.mostraCadastraClienteContrato();
+//            }
+
+        }
+    }
+
+    public GerenciadorEventos getGerenciadorEventos() {
+        return gerenciadorEventos;
+    }
+
+    public void setGerenciadorEventos(GerenciadorEventos gerenciadorEventos) {
+        this.gerenciadorEventos = gerenciadorEventos;
+    }
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

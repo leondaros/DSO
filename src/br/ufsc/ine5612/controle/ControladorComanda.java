@@ -16,10 +16,14 @@ import br.ufsc.ine5612.persistencia.ComandaDAO;
 public class ControladorComanda {
     private final int nMesas = 4;
     private Mesa[] mesas;
+    private ControladorPrincipal principal;
+    
     private ComandaDAO comandaDAO;
     
-    public ControladorComanda() {
+    
+    public ControladorComanda(ControladorPrincipal principal) {
         mesas = new Mesa[nMesas];
+        this.principal=principal;
     }
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];

@@ -34,7 +34,7 @@ public class SistemaComanda {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
 
-        (new PedidosMesaJFrame()).setVisible(true);
+        (new LoginJFrame()).setVisible(true);
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorComanda controladorComanda = new ControladorComanda();
         
