@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 public class ControladorComanda {
     private final int nMesas = 4;
     private Mesa[] mesas;
+    private Mesa mesaAtual;
     private ControladorPrincipal principal;
     
     private ComandaDAO comandaDAO;
@@ -28,8 +29,30 @@ public class ControladorComanda {
         mesas = new Mesa[nMesas];
         this.principal=principal;
     }
-    
-    
+
+    public Mesa getMesaAtual() {
+        return mesaAtual;
+    }
+
+    public void setMesaAtual(Mesa mesaAtual) {
+        this.mesaAtual = mesaAtual;
+    }
+
+    public ControladorPrincipal getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(ControladorPrincipal principal) {
+        this.principal = principal;
+    }
+
+    public ComandaDAO getComandaDAO() {
+        return comandaDAO;
+    }
+
+    public void setComandaDAO(ComandaDAO comandaDAO) {
+        this.comandaDAO = comandaDAO;
+    }
     
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];
@@ -51,6 +74,7 @@ public class ControladorComanda {
        Mesa mesa = null;
         try {
             mesa = abreMesaException(f, num);
+            mesaAtual=mesa;
         } catch (MesaInexistenteException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }

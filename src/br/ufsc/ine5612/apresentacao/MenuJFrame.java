@@ -146,6 +146,15 @@ public class MenuJFrame extends javax.swing.JFrame {
             jComboBox3.addItem(sobremesa.get(i).getTitulo());
         }
 
+        jButton1.setActionCommand(jButton1.getText());
+        jButton1.addActionListener(gerenciadorEventos);
+        jButton2.setActionCommand(jButton2.getText());
+        jButton2.addActionListener(gerenciadorEventos);
+        jButton3.setActionCommand(jButton3.getText());
+        jButton3.addActionListener(gerenciadorEventos);
+        jButton4.setActionCommand(jButton4.getText());
+        jButton4.addActionListener(gerenciadorEventos);        
+        
     }
 
     private class GerenciadorEventos implements ActionListener {
@@ -155,13 +164,13 @@ public class MenuJFrame extends javax.swing.JFrame {
 
             if (e.getActionCommand().equals(jButton1.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox1.getSelectedItem().toString()), NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox1.getSelectedItem().toString()),controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox2.getSelectedItem().toString()), NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getBebidaMenu(jComboBox2.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox3.getSelectedItem().toString()), NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getSobremesaMenu(jComboBox3.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
 //                ENCERRAR PEDIDO
                   controladorPrincipal.fechaTelaCardapioMenu();
@@ -169,13 +178,28 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         }
     }
-
     public GerenciadorEventos getGerenciadorEventos() {
         return gerenciadorEventos;
     }
 
     public void setGerenciadorEventos(GerenciadorEventos gerenciadorEventos) {
         this.gerenciadorEventos = gerenciadorEventos;
+    }
+
+    public ControladorPrincipal getControladorPrincipal() {
+        return controladorPrincipal;
+    }
+
+    public void setControladorPrincipal(ControladorPrincipal controladorPrincipal) {
+        this.controladorPrincipal = controladorPrincipal;
+    }
+
+    public ControladorMenu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(ControladorMenu menu) {
+        this.menu = menu;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
