@@ -5,6 +5,7 @@
  */
 package br.ufsc.ine5612.controle;
 
+import br.ufsc.ine5612.apresentacao.LoginJFrame;
 import br.ufsc.ine5612.entidades.Funcionario;
 import java.util.ArrayList;
 
@@ -16,9 +17,17 @@ public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
     private ControladorPrincipal principal;
+    
+    private LoginJFrame loginJFrame;
+    
     public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
+        loginJFrame = new LoginJFrame(this);
         criarFuncionarios();
+    }
+    
+    public void telaLogin(){
+        loginJFrame.setVisible(true);
     }
     
     public void adicionarFuncionario(Funcionario funcionario){

@@ -10,13 +10,8 @@ import br.ufsc.ine5612.apresentacao.MesasJFrame;
 import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorFuncionario;
-<<<<<<< HEAD
-import br.ufsc.ine5612.controle.ControladorPrincipal;
-import br.ufsc.ine5612.entidades.Categoria;
-=======
 import br.ufsc.ine5612.controle.ControladorMenu;
 import br.ufsc.ine5612.controle.ControladorPrincipal;
->>>>>>> refs/remotes/junakayama/dev
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Produto;
 
@@ -37,22 +32,14 @@ public class SistemaComanda {
     public static void main(String[] args) {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
-<<<<<<< HEAD
+        
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
+        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
+        
+        (new LoginJFrame(controladorFuncionario)).setVisible(true);
 
-        
-        
-        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
-        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
-        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
-        
-        (new LoginJFrame(controladorPrincipal)).setVisible(true);
-=======
-        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
-        (new LoginJFrame(controladorPrincipal)).setVisible(true);
-        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
-        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
         ControladorMenu controladorMenu = new ControladorMenu();
->>>>>>> refs/remotes/junakayama/dev
         
         Produto comida1 = controladorMenu.getComidaMenu("Pizza");
         Produto comida2 = controladorMenu.getComidaMenu("Lasanha");
@@ -68,19 +55,12 @@ public class SistemaComanda {
         
         controladorComanda.adicionaPedido(comida1, 1);
         System.out.println("adiciona produto0");
-<<<<<<< HEAD
-        controladorComanda.adicionaPedido(produto1, 1);
-=======
         controladorComanda.adicionaPedido(comida2, 1);
->>>>>>> refs/remotes/junakayama/dev
         System.out.println("adiciona produto1");
         controladorComanda.adicionaPedido(comida3, 1);
         System.out.println("adiciona produto2");
-<<<<<<< HEAD
-        controladorComanda.adicionaPedido(produto3, 1);
+        controladorComanda.adicionaPedido(comida4, 1);
         System.out.println("adiciona produto3");
-        controladorComanda.adicionaPedido(produto4, 1);
-=======
         
         controladorComanda.abreMesa(funcionario,2);
         System.out.println("abriu mesa");
@@ -88,7 +68,6 @@ public class SistemaComanda {
         controladorComanda.adicionaPedido(comida4, 2);
         System.out.println("adiciona produto3");
         controladorComanda.adicionaPedido(comida5, 2);
->>>>>>> refs/remotes/junakayama/dev
         System.out.println("adiciona produto4");
         
         controladorComanda.cancelaPedido(comida1, 1);
