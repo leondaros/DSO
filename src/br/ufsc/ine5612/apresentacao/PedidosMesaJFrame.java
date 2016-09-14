@@ -18,13 +18,11 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     /**
      * Creates new form PedidosMesaJFrame
      */
-    
     private GerenciadorEventos gerenciadorEventos;
     private ControladorComanda controladorComanda;
-    private MenuJFrame menuJFrame;
-    
+
     public PedidosMesaJFrame(ControladorComanda controladorComanda) {
-        this.controladorComanda= controladorComanda;
+        this.controladorComanda = controladorComanda;
         initComponents();
     }
 
@@ -132,9 +130,8 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void inicializarComponentes() {
-    
+
         jButton1.setActionCommand(jButton1.getText());
         jButton1.addActionListener(gerenciadorEventos);
         jButton2.setActionCommand(jButton2.getText());
@@ -147,27 +144,27 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         jButton5.addActionListener(gerenciadorEventos);
         jButton6.setActionCommand(jButton6.getText());
         jButton6.addActionListener(gerenciadorEventos);
-    
+
     }
-    
+
     private class GerenciadorEventos implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            }
+            if (e.getActionCommand().equals(jButton1.getActionCommand())) {
+                controladorComanda.telaCardapioMenu();
+            } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
+//                exclui pedido
+            } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
+//                imprime
+            } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
+//                controladorComanda.encerrarMesa(NORMAL);
+            } else if (e.getActionCommand().equals(jButton5.getActionCommand())) {
+//                controladorComanda.receberPagamento(f, NORMAL);
+            } else if (e.getActionCommand().equals(jButton6.getActionCommand())) {
+                controladorComanda.fechaTelaCardapioMenu();
+            }
 
         }
     }
@@ -179,7 +176,7 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     public void setGerenciadorEventos(GerenciadorEventos gerenciadorEventos) {
         this.gerenciadorEventos = gerenciadorEventos;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
@@ -193,8 +190,5 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
-
-    
-
 
 }

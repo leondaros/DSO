@@ -6,6 +6,8 @@
 package br.ufsc.ine5612.apresentacao;
 
 import br.ufsc.ine5612.controle.ControladorComanda;
+import br.ufsc.ine5612.controle.ControladorMenu;
+import static java.awt.Frame.NORMAL;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,16 +18,19 @@ import java.awt.event.ActionListener;
 public class MenuJFrame extends javax.swing.JFrame {
 
     private GerenciadorEventos gerenciadorEventos;
-    
+
     private ControladorComanda controladorComanda;
-        
+    private ControladorMenu menu;
+
     public MenuJFrame(ControladorComanda controladorComanda) {
-        
+
         initComponents();
-        this.controladorComanda=controladorComanda;
-        
+        inicializar();
+        menu = new ControladorMenu();
+        this.controladorComanda = controladorComanda;
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,7 +46,6 @@ public class MenuJFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,26 +71,21 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         jButton4.setText("Encerrar Pedido");
 
-        jButton5.setText("Cancelar");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 180, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButton5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1, 0, 180, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
@@ -120,32 +119,34 @@ public class MenuJFrame extends javax.swing.JFrame {
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                .addComponent(jButton4)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void inicializar() {
 
-     private class GerenciadorEventos implements ActionListener {
+    }
+
+    private class GerenciadorEventos implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }
+            if (e.getActionCommand().equals(jButton1.getActionCommand())) {
+//                ADD
+//                controladorComanda.adicionaPedido(produto, NORMAL);
+            } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
+//                ADD
+//                controladorComanda.adicionaPedido(produto, NORMAL);
+            } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
+//                ADD
+//                controladorComanda.adicionaPedido(produto, NORMAL);
+            } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
+//                ENCERRAR PEDIDO
+            }
 
         }
     }
@@ -157,13 +158,12 @@ public class MenuJFrame extends javax.swing.JFrame {
     public void setGerenciadorEventos(GerenciadorEventos gerenciadorEventos) {
         this.gerenciadorEventos = gerenciadorEventos;
     }
-     
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

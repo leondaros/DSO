@@ -5,12 +5,13 @@
  */
 package br.ufsc.ine5612.controle;
 
-import br.ufsc.ine5612.entidades.Categoria;
 import static br.ufsc.ine5612.entidades.Categoria.BEBIDA;
 import static br.ufsc.ine5612.entidades.Categoria.COMIDA;
 import static br.ufsc.ine5612.entidades.Categoria.SOBREMESA;
 import br.ufsc.ine5612.entidades.Menu;
 import br.ufsc.ine5612.entidades.Produto;
+import br.ufsc.ine5612.excecao.ProdutoInexistenteException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,44 +71,91 @@ public class ControladorMenu {
         return menu;
     }
     
-    public Produto getComidaMenu(String titulo){
+    public Produto getComidaMenuException(String titulo) throws ProdutoInexistenteException{
         int qtd = menu.getComidas().size();
         Produto produto = null;
-        
+        int verifica = 0;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getComidas().get(i);
             if(produto.getTitulo().equals(titulo)){
+                verifica = 0;
                 return produto;
+            } else{
+                verifica = 1;
             }
+        }
+        if(verifica == 1) {
+            throw new ProdutoInexistenteException();
+        }
+        return produto;
+    }
+    
+    public Produto getComidaMenu(String titulo){
+        Produto produto = null;
+        try {
+           produto = getComidaMenuException(titulo);
+        } catch (ProdutoInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return produto;
+    }
+    
+    public Produto getBebidaMenuException(String titulo) throws ProdutoInexistenteException{
+        int qtd = menu.getBebidas().size();
+        Produto produto = null;
+        int verifica = 0;
+        for(int i = 0; i <= qtd ; i++){
+            produto = menu.getBebidas().get(i);
+            if(produto.getTitulo().equals(titulo)){
+                verifica = 0;
+                return produto;
+            } else{
+                verifica = 1;
+            }
+        }
+        if(verifica == 1) {
+            throw new ProdutoInexistenteException();
         }
         return produto;
     }
     
     public Produto getBebidaMenu(String titulo){
-        int qtd = menu.getBebidas().size();
         Produto produto = null;
-        
-        for(int i = 0; i <= qtd ; i++){
-            produto = menu.getBebidas().get(i);
-            if(produto.getTitulo().equals(titulo)){
-                return produto;
-            }
+        try {
+           produto = getBebidaMenuException(titulo);
+        } catch (ProdutoInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return produto;
     }
         
-    public Produto getSobremesaMenu(String titulo){
+    public Produto getSobremesaMenuException(String titulo) throws ProdutoInexistenteException{
         int qtd = menu.getSobremesas().size();
         Produto produto = null;
-        
+        int verifica = 0;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getSobremesas().get(i);
             if(produto.getTitulo().equals(titulo)){
+                verifica = 0;
                 return produto;
+            } else {
+                verifica = 1;
             }
+        }
+        if(verifica == 1) {
+            throw new ProdutoInexistenteException();
         }
         return produto;
     }
     
+      public Produto getSobremesaMenu(String titulo){
+        Produto produto = null;
+        try {
+           produto = getSobremesaMenuException(titulo);
+        } catch (ProdutoInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return produto;
+    }
   
 }

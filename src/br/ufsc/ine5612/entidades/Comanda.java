@@ -35,7 +35,7 @@ public class Comanda implements Serializable{
        return habilitaPedido;
     }
     
-    public void setHabilitaPedito(boolean habilitaPedido){
+    public void setHabilitaPedido(boolean habilitaPedido){
        this.habilitaPedido = habilitaPedido;
     }
     
