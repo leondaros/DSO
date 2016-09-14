@@ -5,14 +5,8 @@
  */
 package br.ufsc.ine5612.controle;
 
-import br.ufsc.ine5612.apresentacao.LoginJFrame;
 import br.ufsc.ine5612.entidades.Funcionario;
-import br.ufsc.ine5612.excecao.LoginInexistenteException;
-import br.ufsc.ine5612.excecao.NenhumFuncionarioCadastradoException;
-import br.ufsc.ine5612.excecao.SenhaErradaException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -67,7 +61,7 @@ public class ControladorFuncionario {
     }
 
 
-    public Funcionario validaUsuarioException(String login, String senha) throws SenhaErradaException, LoginInexistenteException, NenhumFuncionarioCadastradoException {
+    public Funcionario validaUsuarioException(String login, String senha) throws IndexOutOfBoundsException {
         int qtd = funcionarios.size();
         int verifica = 0;
         Funcionario funcionario = null;
@@ -78,28 +72,18 @@ public class ControladorFuncionario {
                     verifica = 0;
                     this.funcionarioLogado = funcionario;
                     return funcionario;
-                } else{
-                    verifica = 1;
                 }
-            } else {
-                verifica = 2;
             }
         }
-        if(verifica == 1) {
-            throw new SenhaErradaException();
-        }
-        if(verifica == 2) {
-            throw new LoginInexistenteException();
-        }
-        throw new NenhumFuncionarioCadastradoException();
+        throw new IndexOutOfBoundsException();
     }
     
     public Funcionario validaUsuario(String login, String senha){
         Funcionario funcionario = null;
         try {
             funcionario = validaUsuarioException(login, senha);  
-        } catch (SenhaErradaException | LoginInexistenteException | NenhumFuncionarioCadastradoException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+          JOptionPane.showMessageDialog(null, "Login ou senha incorretos","ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return funcionario;
     }

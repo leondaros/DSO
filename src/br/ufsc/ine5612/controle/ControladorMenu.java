@@ -74,20 +74,15 @@ public class ControladorMenu {
     public Produto getComidaMenuException(String titulo) throws ProdutoInexistenteException{
         int qtd = menu.getComidas().size();
         Produto produto = null;
-        int verifica = 0;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getComidas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                verifica = 0;
+                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
-            } else{
-                verifica = 1;
             }
         }
-        if(verifica == 1) {
-            throw new ProdutoInexistenteException();
-        }
-        return produto;
+        
+        throw new ProdutoInexistenteException();
     }
     
     public Produto getComidaMenu(String titulo){
@@ -103,19 +98,14 @@ public class ControladorMenu {
     public Produto getBebidaMenuException(String titulo) throws ProdutoInexistenteException{
         int qtd = menu.getBebidas().size();
         Produto produto = null;
-        int verifica = 0;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getBebidas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                verifica = 0;
+                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
-            } else{
-                verifica = 1;
             }
         }
-        if(verifica == 1) {
-            throw new ProdutoInexistenteException();
-        }
+
         return produto;
     }
     
@@ -132,18 +122,12 @@ public class ControladorMenu {
     public Produto getSobremesaMenuException(String titulo) throws ProdutoInexistenteException{
         int qtd = menu.getSobremesas().size();
         Produto produto = null;
-        int verifica = 0;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getSobremesas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                verifica = 0;
+                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
-            } else {
-                verifica = 1;
             }
-        }
-        if(verifica == 1) {
-            throw new ProdutoInexistenteException();
         }
         return produto;
     }
