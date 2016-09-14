@@ -16,6 +16,7 @@ public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
     private ControladorPrincipal principal;
+    
     public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
         criarFuncionarios();
