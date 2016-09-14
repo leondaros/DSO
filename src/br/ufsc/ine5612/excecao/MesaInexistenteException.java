@@ -9,9 +9,9 @@ package br.ufsc.ine5612.excecao;
  *
  * @author julia
  */
-public class ProdutoInexistenteException extends Exception{
-  
-    public ProdutoInexistenteException(){
-        super("Esse produto não está cadastrado no sistema");
+public class MesaInexistenteException extends Exception{
+    
+    public MesaInexistenteException(){
+        super("Mesa não existente");
     }
 }

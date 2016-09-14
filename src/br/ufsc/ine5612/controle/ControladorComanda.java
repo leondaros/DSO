@@ -11,7 +11,13 @@ import br.ufsc.ine5612.entidades.Comanda;
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Mesa;
 import br.ufsc.ine5612.entidades.Produto;
+import br.ufsc.ine5612.excecao.ComandaFechadaException;
+import br.ufsc.ine5612.excecao.MesaInexistenteException;
+import br.ufsc.ine5612.excecao.NaoGerenteException;
 import br.ufsc.ine5612.persistencia.ComandaDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author aluno
@@ -53,7 +59,7 @@ public class ControladorComanda {
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];
     }
-    public Mesa abreMesa(Funcionario f, int num) {
+    public Mesa abreMesaException(Funcionario f, int num) throws MesaInexistenteException{
         if(num <= nMesas){
             mesas[num-1] = new Mesa(num);
             mesas[num-1].setFuncionario(f);
@@ -61,50 +67,140 @@ public class ControladorComanda {
             Comanda comanda = new Comanda();
             mesas[num-1].setComanda(comanda);
             return mesas[num-1];
+        }else{
+            throw new MesaInexistenteException();
         }
-        return null;
+    }
+    
+    public Mesa abreMesa(Funcionario f, int num){
+       Mesa mesa = null;
+        try {
+            mesa = abreMesaException(f, num);
+        } catch (MesaInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+       return mesa;
+    }
+    
+    public void encerrarMesaException(int num) throws MesaInexistenteException{
+        //qualquer funcionario pode encerrar a mesa
+        if(num <= nMesas){
+            mesas[num-1].getComanda().setHabilitaPedido(false);
+        }else{
+            throw new MesaInexistenteException();
+        }
     }
     
     public void encerrarMesa(int num){
-        mesas[num-1].getComanda().setHabilitaPedito(false);
+        try {
+           encerrarMesaException(num);
+        } catch (MesaInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
-    public void receberPagamento(Funcionario f, int num) {
-        //apenas gerente
+    
+    public void receberPagamentoException(Funcionario f, int num) throws NaoGerenteException, MesaInexistenteException {
         if (f.isGerente()) {
-            mesas[num-1].setOcupada(false);
-            Comanda comanda = mesas[num-1].getComanda();
-            comandaDAO.put(comanda);
-            mesas[num-1].setComanda(null);
-            mesas[num-1].setFuncionario(null);
-        }
-    }
-    
-    public void adicionaPedido(Produto produto, int num) {
-        if(mesas[num-1].getComanda().getHabilitaPedido()){
-            mesas[num-1].getComanda().getProdutos().add(produto);
-            mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
-        }
-        //se não, a comanda está fechada e não dá
-    }
-    
-    public void cancelaPedido(Produto p, int num) {
-        //apenas gerente
-        Comanda c = mesas[num-1].getComanda();
-        for (int i = 0; i < c.getProdutos().size(); i++) {
-            if (c.getProdutos().get(i).equals(p)) {
-               c.getProdutos().remove(i);
-               c.setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() - p.getPreco());
+            if(num <= nMesas){
+                if(mesas[num-1].getComanda().getHabilitaPedido()){
+                    mesas[num-1].getComanda().setHabilitaPedido(false);
+                }
+                mesas[num-1].setOcupada(false);
+                Comanda comanda = mesas[num-1].getComanda();
+                comandaDAO.put(comanda);
+                mesas[num-1].setComanda(null);
+                mesas[num-1].setFuncionario(null);
+            }else{
+                throw new MesaInexistenteException();
             }
+        }else{
+            throw new NaoGerenteException();
         }
     }
+    
+    public void receberPagamento(Funcionario f, int num){
+        try {
+            receberPagamentoException(f,num);
+        } catch (NaoGerenteException | MesaInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void adicionaPedidoException(Produto produto, int num) throws ComandaFechadaException, MesaInexistenteException {
+        if(mesas[num-1].getComanda().getHabilitaPedido()){
+            if(num <= nMesas){
+                mesas[num-1].getComanda().getProdutos().add(produto);
+                mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
+            }else{
+                throw new MesaInexistenteException();
+            }
+        }else{
+            throw new ComandaFechadaException();
+        }
+    }
+    
+    public void adicionaPedido(Produto produto, int num){
+        try {
+            adicionaPedidoException(produto, num);
+        } catch (ComandaFechadaException | MesaInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void cancelaPedidoException(Funcionario f, Produto p, int num) throws NaoGerenteException, MesaInexistenteException, ComandaFechadaException {
+        if (f.isGerente()) {
+            if(num<=nMesas){
+                if(mesas[num-1].getComanda().getHabilitaPedido()){
+                    Comanda c = mesas[num-1].getComanda();
+                    for (int i = 0; i < c.getProdutos().size(); i++) {
+                        if (c.getProdutos().get(i).equals(p)) {
+                           c.getProdutos().remove(i);
+                           c.setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() - p.getPreco());
+                        }
+                    }
+                } else{
+                    throw new ComandaFechadaException();
+                }
+            } else{
+                throw new MesaInexistenteException();
+            }
+        }else{
+            throw new NaoGerenteException();
+        }
+    }
+    
+    public void cancelaPedido(Funcionario f, Produto p, int num){
+        try {
+            cancelaPedidoException(f, p, num);
+        } catch (NaoGerenteException | MesaInexistenteException | ComandaFechadaException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public void imprimeComanda(int num) {
     }
     
-    public void adicionaCortesia(Funcionario funcionario, Produto produto, int num) {
+    public void adicionaCortesiaException(Funcionario funcionario, Produto produto, int num) throws ComandaFechadaException, NaoGerenteException, MesaInexistenteException {
         if (funcionario.isGerente()) {
-            if(mesas[num-1].getComanda().getHabilitaPedido()){
-                mesas[num-1].getComanda().getProdutos().add(produto);
+            if(num <= nMesas){
+                if(mesas[num-1].getComanda().getHabilitaPedido()){
+                    mesas[num-1].getComanda().getProdutos().add(produto);
+                } else{
+                    throw new ComandaFechadaException();
+                }
+            } else{
+                throw new MesaInexistenteException();
             }
+        } else{
+            throw new NaoGerenteException();
+        }
+    }
+    
+    public void adicionaCortesia(Funcionario funcionario, Produto produto, int num){
+        try {
+            adicionaCortesiaException(funcionario, produto, num);
+        } catch (ComandaFechadaException | NaoGerenteException | MesaInexistenteException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 

@@ -71,7 +71,7 @@ public class SistemaComanda {
         controladorComanda.adicionaPedido(comida5, 2);
         System.out.println("adiciona produto4");
         
-        controladorComanda.cancelaPedido(comida1, 1);
+        controladorComanda.cancelaPedido(funcionario,comida1, 1);
         System.out.println("removeu produto");
         
 //        for (Produto p : controladorComanda.getMesa().getComanda().getProdutos()) {
