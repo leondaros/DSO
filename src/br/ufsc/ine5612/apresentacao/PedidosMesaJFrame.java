@@ -21,7 +21,6 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
     
     private GerenciadorEventos gerenciadorEventos;
     private ControladorComanda controladorComanda;
-    private MenuJFrame menuJFrame;
     
     public PedidosMesaJFrame(ControladorComanda controladorComanda) {
         this.controladorComanda= controladorComanda;
@@ -155,19 +154,19 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            } else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-//                principal.mostraCadastraClienteContrato();
-//            }
+            if (e.getActionCommand().equals(jButton1.getActionCommand())) {
+                    controladorComanda.telaCardapioMenu();
+            } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
+//                controladorComanda.mostraCadastraClienteContrato();
+            } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
+//                controladorComanda.mostraCadastraClienteContrato();
+            } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
+//                controladorComanda.mostraCadastraClienteContrato();
+            } else if (e.getActionCommand().equals(jButton5.getActionCommand())) {
+//                controladorComanda.mostraCadastraClienteContrato();
+            } else if (e.getActionCommand().equals(jButton6.getActionCommand())) {
+//                controladorComanda.mostraCadastraClienteContrato();
+            }
 
         }
     }

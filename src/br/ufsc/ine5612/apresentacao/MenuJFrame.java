@@ -6,8 +6,12 @@
 package br.ufsc.ine5612.apresentacao;
 
 import br.ufsc.ine5612.controle.ControladorComanda;
+import br.ufsc.ine5612.controle.ControladorMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -18,10 +22,13 @@ public class MenuJFrame extends javax.swing.JFrame {
     private GerenciadorEventos gerenciadorEventos;
     
     private ControladorComanda controladorComanda;
+    private ControladorMenu menu;
         
     public MenuJFrame(ControladorComanda controladorComanda) {
         
         initComponents();
+        inicializar();
+        menu = new ControladorMenu();
         this.controladorComanda=controladorComanda;
         
     }
@@ -129,23 +136,27 @@ public class MenuJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void inicializar(){
+      
+    }
+    
 
      private class GerenciadorEventos implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-//            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }else if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-////                principal.mostraCadastraClienteContrato();
-//            }
+            if (e.getActionCommand().equals(jButton1.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+            }else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+            }else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+            }else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+            }else if (e.getActionCommand().equals(jButton5.getActionCommand())) {
+//                principal.mostraCadastraClienteContrato();
+            }
 
         }
     }

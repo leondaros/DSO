@@ -6,11 +6,9 @@
 package br.ufsc.ine5612.apresentacao;
 
 import br.ufsc.ine5612.controle.ControladorComanda;
-import br.ufsc.ine5612.controle.ControladorPrincipal;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -36,6 +34,8 @@ public class MesasJFrame extends javax.swing.JFrame {
     private JButton buttonMesa4;
     private ControladorComanda comanda;
     private GerenciadorEventos gerenciadorEventos;
+    
+    
 
     public MesasJFrame(ControladorComanda comanda) {
         initComponents();
@@ -93,18 +93,22 @@ public class MesasJFrame extends javax.swing.JFrame {
             if (e.getActionCommand().equals(buttonMesa1.getActionCommand())) {
                 
 //                principal.mostraCadastraClienteContrato();
+                  comanda.telaPedidosMesa();
                 
             } else if (e.getActionCommand().equals(buttonMesa2.getActionCommand())) {
                 
 //                principal.mostraCadastraClienteContrato();
+                  comanda.telaPedidosMesa();
                 
             } else if (e.getActionCommand().equals(buttonMesa3.getActionCommand())) {
                 
 //                principal.mostraCadastraClienteContrato();
+                  comanda.telaPedidosMesa();
                 
             } else if (e.getActionCommand().equals(buttonMesa4.getActionCommand())) {
                 
 //                principal.mostraCadastraClienteContrato();
+                  comanda.telaPedidosMesa();
             }
 
         }

@@ -6,6 +6,7 @@
 package br;
 
 import br.ufsc.ine5612.apresentacao.LoginJFrame;
+import br.ufsc.ine5612.apresentacao.MenuJFrame;
 import br.ufsc.ine5612.apresentacao.MesasJFrame;
 import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.controle.ControladorComanda;
@@ -37,7 +38,7 @@ public class SistemaComanda {
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
         ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
         
-        (new LoginJFrame(controladorFuncionario)).setVisible(true);
+        (new MenuJFrame(controladorComanda)).setVisible(true);
 
         ControladorMenu controladorMenu = new ControladorMenu();
         

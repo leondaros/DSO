@@ -57,21 +57,6 @@ public class ControladorFuncionario {
         return funcionarios;
     }
 
-//    public boolean validaUsuario(String login,String senha){
-//        int verificador = 0;
-//        Integer log = Integer.parseInt(login);
-//        Set<Integer> chaves = funcionarioDAO.getCache().keySet();
-//        for(Integer chave: chaves){
-//            if(chave.equals(log)){
-//                Funcionario funcionario = funcionarioDAO.get(chave);
-//                if(funcionario.getSenha().equals(senha)){
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
-//    
     public Funcionario validaUsuario(String login, String senha) {
         int qtd = funcionarios.size();
         for(int i = 0; i <= qtd ; i++){
