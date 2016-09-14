@@ -6,6 +6,7 @@
 package br.ufsc.ine5612.apresentacao;
 
 import br.ufsc.ine5612.controle.ControladorPrincipal;
+import br.ufsc.ine5612.entidades.Funcionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -73,6 +74,11 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         jButton2.setText("Exclui Pedido");
 
         jButton3.setText("Receber Dinheiro");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Encerrar Mesa");
 
@@ -135,6 +141,10 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+           // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void inicializarComponentes() {
 

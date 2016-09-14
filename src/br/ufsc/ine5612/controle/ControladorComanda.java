@@ -22,8 +22,7 @@ public class ControladorComanda {
     private Mesa[] mesas;
     private Mesa mesaAtual;
     private ControladorPrincipal principal;
-    
-    private ComandaDAO comandaDAO;
+    private ComandaDAO comandaDAO = new ComandaDAO();
     
     public ControladorComanda(ControladorPrincipal principal) {
         mesas = new Mesa[nMesas];
@@ -63,7 +62,9 @@ public class ControladorComanda {
             mesas[num-1].setFuncionario(f);
             mesas[num-1].setOcupada(true);
             Comanda comanda = new Comanda(num);
+            comandaDAO.put(comanda);
             mesas[num-1].setComanda(comanda);
+            JOptionPane.showMessageDialog(null, "Mesa aberta com sucesso!","WARNING", JOptionPane.WARNING_MESSAGE);
             return mesas[num-1];
         }else{
             throw new MesaInexistenteException();
@@ -85,6 +86,7 @@ public class ControladorComanda {
         //qualquer funcionario pode encerrar a mesa
         if(num <= nMesas){
             mesas[num-1].getComanda().setHabilitaPedido(false);
+            JOptionPane.showMessageDialog(null, "Mesa encerrada com sucesso!","WARNING", JOptionPane.WARNING_MESSAGE);
         }else{
             throw new MesaInexistenteException();
         }
@@ -109,6 +111,7 @@ public class ControladorComanda {
                 comandaDAO.put(comanda);
                 mesas[num-1].setComanda(null);
                 mesas[num-1].setFuncionario(null);
+                JOptionPane.showMessageDialog(null, "Pagamento efetuado com sucesso!","WARNING", JOptionPane.WARNING_MESSAGE);
             }else{
                 throw new MesaInexistenteException();
             }
@@ -129,7 +132,8 @@ public class ControladorComanda {
         if(mesas[num-1].getComanda().getHabilitaPedido()){
             if(num <= nMesas){
                 mesas[num-1].getComanda().getProdutos().add(produto);
-                mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
+                mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal()+produto.getPreco());
+                 JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
             }else{
                 throw new MesaInexistenteException();
             }
