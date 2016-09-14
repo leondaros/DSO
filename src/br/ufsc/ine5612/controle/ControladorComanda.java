@@ -51,12 +51,13 @@ public class ControladorComanda {
     }
     
     public void adicionaPedido(Produto produto, int num) {
-        if(mesas[num-1].getComanda().getHabilitaPedito()){
+        if(mesas[num-1].getComanda().getHabilitaPedido()){
             mesas[num-1].getComanda().getProdutos().add(produto);
             mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
         }
         //se não, a comanda está fechada e não dá
     }
+    
     public void cancelaPedido(Produto p, int num) {
         //apenas gerente
         Comanda c = mesas[num-1].getComanda();
@@ -69,9 +70,10 @@ public class ControladorComanda {
     }
     public void imprimeComanda(int num) {
     }
+    
     public void adicionaCortesia(Funcionario funcionario, Produto produto, int num) {
         if (funcionario.isGerente()) {
-            if(mesas[num-1].getComanda().getHabilitaPedito()){
+            if(mesas[num-1].getComanda().getHabilitaPedido()){
                 mesas[num-1].getComanda().getProdutos().add(produto);
             }
         }

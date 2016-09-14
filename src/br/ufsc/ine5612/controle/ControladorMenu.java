@@ -21,6 +21,7 @@ public class ControladorMenu {
     
     public ControladorMenu(){
         menu = new Menu();
+        adicionarProdutos();
     }
     
 //    public Produto adicionarProduto(String titulo, double preco, Categoria c){
@@ -63,6 +64,49 @@ public class ControladorMenu {
         Produto sobremesa3 = new Produto("Torta", 8, SOBREMESA);
         this.menu.setSobremesa(sobremesa1);
         this.menu.setSobremesa(sobremesa2);
+    }
+    
+    public Menu getMenu(){
+        return menu;
+    }
+    
+    public Produto getComidaMenu(String titulo){
+        int qtd = menu.getComidas().size();
+        Produto produto = null;
+        
+        for(int i = 0; i <= qtd ; i++){
+            produto = menu.getComidas().get(i);
+            if(produto.getTitulo().equals(titulo)){
+                return produto;
+            }
+        }
+        return produto;
+    }
+    
+    public Produto getBebidaMenu(String titulo){
+        int qtd = menu.getBebidas().size();
+        Produto produto = null;
+        
+        for(int i = 0; i <= qtd ; i++){
+            produto = menu.getBebidas().get(i);
+            if(produto.getTitulo().equals(titulo)){
+                return produto;
+            }
+        }
+        return produto;
+    }
+        
+    public Produto getSobremesaMenu(String titulo){
+        int qtd = menu.getSobremesas().size();
+        Produto produto = null;
+        
+        for(int i = 0; i <= qtd ; i++){
+            produto = menu.getSobremesas().get(i);
+            if(produto.getTitulo().equals(titulo)){
+                return produto;
+            }
+        }
+        return produto;
     }
     
   

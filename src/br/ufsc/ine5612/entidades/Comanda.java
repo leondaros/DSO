@@ -30,7 +30,7 @@ public class Comanda {
         this.precoTotal = precoTotal;
     }
     
-    public boolean getHabilitaPedito(){
+    public boolean getHabilitaPedido(){
        return habilitaPedido;
     }
     

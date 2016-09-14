@@ -38,7 +38,7 @@ public class Menu {
         this.bebidas.add(bebida);
     }
 
-    public ArrayList<Produto> getSobremesa() {
+    public ArrayList<Produto> getSobremesas() {
         return sobremesas;
     }
     public void setSobremesa(Produto sobremesa) {
