@@ -9,9 +9,9 @@ package br.ufsc.ine5612.excecao;
  *
  * @author julia
  */
-public class ProdutoInexistenteException extends Exception{
-  
-    public ProdutoInexistenteException(){
-        super("Esse produto não está cadastrado no sistema");
+public class ComandaFechadaException extends Exception{
+    
+    public ComandaFechadaException(){
+        super("Comanda não pode sofrer alterações, porque está fechada");
     }
 }
