@@ -29,6 +29,10 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
            this.controladorPrincipal = controladorPrincipal;
             this.gerenciadorEventos= new GerenciadorEventos();
             
+            
+            String[] colunas = {};
+            String[][]linhas = new String[controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().size()][5];
+            
             inicializarComponentes();
     }
 
@@ -151,6 +155,15 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         jButton6.setActionCommand(jButton6.getText());
         jButton6.addActionListener(gerenciadorEventos);
 
+    }
+    
+    public void atualizaTabela(){
+    
+        
+    
+    
+    
+    
     }
     
     private class GerenciadorEventos implements ActionListener {
