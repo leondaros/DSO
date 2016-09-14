@@ -23,17 +23,12 @@ public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
     private ControladorPrincipal principal;
-    private LoginJFrame loginJFrame;
+    private Funcionario funcionarioLogado;
     
     public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
-        loginJFrame = new LoginJFrame(this);
         this.principal=principal;
         criarFuncionarios();
-    }
-    
-    public void telaLogin(){
-        loginJFrame.setVisible(true);
     }
     
     public void adicionarFuncionario(Funcionario funcionario){
@@ -73,6 +68,7 @@ public class ControladorFuncionario {
             if(funcionario.getLogin().equals(login)){
                 if(funcionario.getSenha().equals(senha)){
                     verifica = 0;
+                    this.funcionarioLogado = funcionario;
                     return funcionario;
                 } else{
                     verifica = 1;
@@ -97,7 +93,6 @@ public class ControladorFuncionario {
         } catch (SenhaErradaException | LoginInexistenteException | NenhumFuncionarioCadastradoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        principal.telaMesasSelecao();
         return funcionario;
     }
  

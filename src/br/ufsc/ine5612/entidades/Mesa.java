@@ -10,7 +10,6 @@ package br.ufsc.ine5612.entidades;
  * @author aluno
  */
 public class Mesa {
-    
     private int numero;
     private Comanda comanda;
     private Funcionario funcionario;

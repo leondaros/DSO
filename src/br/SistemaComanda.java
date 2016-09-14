@@ -35,12 +35,11 @@ public class SistemaComanda {
 //        (new MesasJFrame()).setVisible(true);
         
         ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
-
-        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
-        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
         
-        (new LoginJFrame(controladorFuncionario)).setVisible(true);
-
+//        (new PedidosMesaJFrame(controladorPrincipal)).setVisible(true);
+//            controladorPrincipal.telaPedidosMesa();
+              controladorPrincipal.telaLogin();
+        
 //        ControladorMenu controladorMenu = new ControladorMenu();
 //        
 //        Produto comida1 = controladorMenu.getComidaMenu("Pizza");

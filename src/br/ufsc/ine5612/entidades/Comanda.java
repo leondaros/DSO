@@ -17,15 +17,26 @@ public class Comanda implements Serializable{
    private double precoTotal;
    private Integer codigo;
    private boolean habilitaPedido;
+   private int numMesa;
 
-    public Comanda() {
-        produtos= new ArrayList<>();
-        habilitaPedido = true;
+    public Comanda(int numMesa) {
+        this.produtos= new ArrayList<>();
+        this.habilitaPedido = true;
+        this.numMesa = numMesa;
     }
-    
+
+    public int getNumMesa() {
+        return numMesa;
+    }
+
+    public void setNumMesa(int numMesa) {
+        this.numMesa = numMesa;
+    }
+     
     public double getPrecoTotal() {
         return precoTotal;
     }
+    
 
     public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;

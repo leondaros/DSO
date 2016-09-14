@@ -6,6 +6,7 @@
 package br.ufsc.ine5612.apresentacao;
 
 import br.ufsc.ine5612.controle.ControladorComanda;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,11 +20,17 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
      * Creates new form PedidosMesaJFrame
      */
     private GerenciadorEventos gerenciadorEventos;
-    private ControladorComanda controladorComanda;
-
-    public PedidosMesaJFrame(ControladorComanda controladorComanda) {
-        this.controladorComanda = controladorComanda;
+    private ControladorPrincipal controladorPrincipal;
+    
+    public PedidosMesaJFrame(ControladorPrincipal controladorPrincipal) {
+     
+        
         initComponents();
+        
+           this.controladorPrincipal = controladorPrincipal;
+            this.gerenciadorEventos= new GerenciadorEventos();
+            
+            inicializarComponentes();
     }
 
     /**
@@ -153,7 +160,7 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getActionCommand().equals(jButton1.getActionCommand())) {
-                controladorComanda.telaCardapioMenu();
+                controladorPrincipal.telaCardapioMenu();
             } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
 //                exclui pedido
             } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
@@ -163,7 +170,8 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
             } else if (e.getActionCommand().equals(jButton5.getActionCommand())) {
 //                controladorComanda.receberPagamento(f, NORMAL);
             } else if (e.getActionCommand().equals(jButton6.getActionCommand())) {
-                controladorComanda.fechaTelaCardapioMenu();
+                controladorPrincipal.telaLogin();
+                controladorPrincipal.fechaTelaCardapioMenu();
             }
 
         }

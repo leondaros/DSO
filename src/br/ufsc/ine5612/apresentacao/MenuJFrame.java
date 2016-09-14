@@ -5,11 +5,13 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
-import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorMenu;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
+import br.ufsc.ine5612.entidades.Produto;
 import static java.awt.Frame.NORMAL;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,16 +21,18 @@ public class MenuJFrame extends javax.swing.JFrame {
 
     private GerenciadorEventos gerenciadorEventos;
 
-    private ControladorComanda controladorComanda;
+    private ControladorPrincipal controladorPrincipal;
     private ControladorMenu menu;
 
-    public MenuJFrame(ControladorComanda controladorComanda) {
+    public MenuJFrame(ControladorPrincipal controladorPrincipal) {
 
         initComponents();
-        inicializar();
+        this.controladorPrincipal = controladorPrincipal;
+        gerenciadorEventos= new GerenciadorEventos();
         menu = new ControladorMenu();
-        this.controladorComanda = controladorComanda;
-
+        inicializar();
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -128,6 +132,20 @@ public class MenuJFrame extends javax.swing.JFrame {
 
     public void inicializar() {
 
+        ArrayList<Produto> comidas = menu.getMenu().getComidas();
+        ArrayList<Produto> bebidas = menu.getMenu().getBebidas();
+        ArrayList<Produto> sobremesa = menu.getMenu().getSobremesas();
+
+        for (int i = 0; i < comidas.size(); i++) {
+            jComboBox1.addItem(comidas.get(i).getTitulo());
+        }
+        for (int i = 0; i < bebidas.size(); i++) {
+            jComboBox2.addItem(bebidas.get(i).getTitulo());
+        }
+        for (int i = 0; i < sobremesa.size(); i++) {
+            jComboBox3.addItem(sobremesa.get(i).getTitulo());
+        }
+
     }
 
     private class GerenciadorEventos implements ActionListener {
@@ -137,15 +155,16 @@ public class MenuJFrame extends javax.swing.JFrame {
 
             if (e.getActionCommand().equals(jButton1.getActionCommand())) {
 //                ADD
-//                controladorComanda.adicionaPedido(produto, NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox1.getSelectedItem().toString()), NORMAL);
             } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
 //                ADD
-//                controladorComanda.adicionaPedido(produto, NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox2.getSelectedItem().toString()), NORMAL);
             } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
 //                ADD
-//                controladorComanda.adicionaPedido(produto, NORMAL);
+                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox3.getSelectedItem().toString()), NORMAL);
             } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
 //                ENCERRAR PEDIDO
+                  controladorPrincipal.fechaTelaCardapioMenu();
             }
 
         }
