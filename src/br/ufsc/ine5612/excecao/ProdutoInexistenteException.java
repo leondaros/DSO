@@ -9,9 +9,9 @@ package br.ufsc.ine5612.excecao;
  *
  * @author julia
  */
-public class ProdutoInexistenteException extends Exception{
-  
+public class ProdutoInexistenteException extends IndexOutOfBoundsException{
+    
     public ProdutoInexistenteException(){
-        super("Esse produto não está cadastrado no sistema");
+        super("Produto não cadastrado no sistema");
     }
 }
