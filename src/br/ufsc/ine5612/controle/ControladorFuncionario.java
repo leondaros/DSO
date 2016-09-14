@@ -24,6 +24,14 @@ public class ControladorFuncionario {
         this.principal=principal;
         criarFuncionarios();
     }
+
+    public Funcionario getFuncionarioLogado() {
+        return funcionarioLogado;
+    }
+
+    public void setFuncionarioLogado(Funcionario funcionarioLogado) {
+        this.funcionarioLogado = funcionarioLogado;
+    }
     
     public void adicionarFuncionario(Funcionario funcionario){
         this.funcionarios.add(funcionario);

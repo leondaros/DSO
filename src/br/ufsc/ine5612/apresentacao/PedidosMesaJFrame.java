@@ -5,7 +5,6 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
-import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -153,7 +152,7 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         jButton6.addActionListener(gerenciadorEventos);
 
     }
-
+    
     private class GerenciadorEventos implements ActionListener {
 
         @Override
@@ -166,11 +165,10 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
             } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
 //                imprime
             } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
-//                controladorComanda.encerrarMesa(NORMAL);
+                controladorPrincipal.getControladorComanda().encerrarMesa(controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             } else if (e.getActionCommand().equals(jButton5.getActionCommand())) {
-//                controladorComanda.receberPagamento(f, NORMAL);
+                controladorPrincipal.getControladorComanda().receberPagamento(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             } else if (e.getActionCommand().equals(jButton6.getActionCommand())) {
-                controladorPrincipal.telaLogin();
                 controladorPrincipal.fechaTelaCardapioMenu();
             }
 
