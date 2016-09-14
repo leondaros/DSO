@@ -16,9 +16,11 @@ public class Comanda implements Serializable{
    private ArrayList<Produto> produtos;
    private double precoTotal;
    private Integer codigo;
+   private boolean habilitaPedido;
 
     public Comanda() {
         produtos= new ArrayList<>();
+        habilitaPedido = true;
     }
     
     public double getPrecoTotal() {
@@ -29,7 +31,15 @@ public class Comanda implements Serializable{
         this.precoTotal = precoTotal;
     }
     
-        public Integer getCodigo() {
+    public boolean getHabilitaPedito(){
+       return habilitaPedido;
+    }
+    
+    public void setHabilitaPedito(boolean habilitaPedido){
+       this.habilitaPedido = habilitaPedido;
+    }
+    
+    public Integer getCodigo() {
         return codigo;
     }
 
