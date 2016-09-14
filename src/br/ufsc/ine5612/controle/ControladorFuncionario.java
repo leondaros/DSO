@@ -39,7 +39,7 @@ public class ControladorFuncionario {
     
     public void criarFuncionarios(){
         Funcionario funcionario1 = new Funcionario("Júlia", "junakayama", "meunomeehjulia", true);
-        Funcionario funcionario2 = new Funcionario("Leon", "leondaros", "euamoanina", false);
+        Funcionario funcionario2 = new Funcionario("Leon", "leondaros", "euamoanina", true);
         Funcionario funcionario3 = new Funcionario("Jan", "janpierry", "abacaxi", false);
         Funcionario funcionario4 = new Funcionario("Luiza", "lucardoso", "tchkmama", false);
         adicionarFuncionario(funcionario1);
