@@ -35,6 +35,7 @@ public class SistemaComanda {
 //        (new MesasJFrame()).setVisible(true);
         
         ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
         ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
         

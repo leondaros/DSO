@@ -17,7 +17,6 @@ public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
     private ControladorPrincipal principal;
-    
     private LoginJFrame loginJFrame;
     
     public ControladorFuncionario(ControladorPrincipal principal) {
