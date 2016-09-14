@@ -5,6 +5,7 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import br.ufsc.ine5612.controle.ControladorComanda;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,10 +16,13 @@ import java.awt.event.ActionListener;
 public class MenuJFrame extends javax.swing.JFrame {
 
     private GerenciadorEventos gerenciadorEventos;
+    
+    private ControladorComanda controladorComanda;
         
-    public MenuJFrame() {
+    public MenuJFrame(ControladorComanda controladorComanda) {
         
         initComponents();
+        this.controladorComanda=controladorComanda;
         
     }
     

@@ -32,11 +32,14 @@ public class SistemaComanda {
     public static void main(String[] args) {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
-        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
-        (new LoginJFrame(controladorPrincipal)).setVisible(true);
         
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
         ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
+        
+        (new LoginJFrame(controladorFuncionario)).setVisible(true);
+
         ControladorMenu controladorMenu = new ControladorMenu();
         
         Produto comida1 = controladorMenu.getComidaMenu("Pizza");
@@ -57,6 +60,8 @@ public class SistemaComanda {
         System.out.println("adiciona produto1");
         controladorComanda.adicionaPedido(comida3, 1);
         System.out.println("adiciona produto2");
+        controladorComanda.adicionaPedido(comida4, 1);
+        System.out.println("adiciona produto3");
         
         controladorComanda.abreMesa(funcionario,2);
         System.out.println("abriu mesa");
