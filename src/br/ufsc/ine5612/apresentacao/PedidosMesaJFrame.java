@@ -24,19 +24,18 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
      */
     private GerenciadorEventos gerenciadorEventos;
     private ControladorPrincipal controladorPrincipal;
-    
+
     String[] colunas = {};
-    String[][]linhas;
-    
+    String[][] linhas;
+
     public PedidosMesaJFrame(ControladorPrincipal controladorPrincipal) {
-     
-        
+
         initComponents();
-        
-           this.controladorPrincipal = controladorPrincipal;
-            this.gerenciadorEventos= new GerenciadorEventos();
-                        
-            inicializarComponentes();
+
+        this.controladorPrincipal = controladorPrincipal;
+        this.gerenciadorEventos = new GerenciadorEventos();
+
+        inicializarComponentes();
     }
 
     /**
@@ -162,35 +161,35 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
         jButton5.addActionListener(gerenciadorEventos);
         jButton6.setActionCommand(jButton6.getText());
         jButton6.addActionListener(gerenciadorEventos);
-        
-        atualizaTabela();
+
+        //atualizaTabela();
 //        jScrollPane1 = new JScrollPane(linhas, colunas);
 //        atualizaDadosTabelaChamados();
 //        tbChamados.setPreferredScrollableViewportSize(new Dimension(450, 120));
 //        tbChamados.setFillsViewportHeight(true);
 //        JScrollPane jsp = new JScrollPane(tbChamados);
-        
 
     }
-    
-    public void atualizaTabela(){
- 
+
+    public void atualizaTabela() {
+
         DefaultTableModel colunas = new DefaultTableModel();
         colunas.addColumn("Produto");
         colunas.addColumn("Preço");
-        this.tabelaImpressao.setModel(colunas);
-        double saldoTotal=0;
-        
-         for (int i = 0; i < controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().size(); i++) {
-            Produto produto = controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().get(i);
-            colunas.addRow(new Object[]{produto.getTitulo(), produto.getPreco()});
-            saldoTotal = saldoTotal + produto.getPreco();
+//        this.tabelaImpressao.setModel(colunas);
+        double saldoTotal = 0;
+
+        if (!controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().isEmpty()) {
+            for (int i = 0; i < controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().size(); i++) {
+                Produto produto = controladorPrincipal.getControladorComanda().getMesaAtual().getComanda().getProdutos().get(i);
+                colunas.addRow(new Object[]{produto.getTitulo(), produto.getPreco()});
+                saldoTotal = saldoTotal + produto.getPreco();
+            }
+            colunas.addRow(new Object[]{null, "Conta:", saldoTotal});
         }
-         colunas.addRow(new Object[]{null, "Conta:", saldoTotal});
-         
-      tabelaImpressao.setModel(colunas);
+        tabelaImpressao.setModel(colunas);
     }
-    
+
     private class GerenciadorEventos implements ActionListener {
 
         @Override
@@ -209,7 +208,7 @@ public class PedidosMesaJFrame extends javax.swing.JFrame {
                 controladorPrincipal.getControladorComanda().encerrarMesa(controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             }
             if (e.getActionCommand().equals(jButton5.getActionCommand())) {
-                controladorPrincipal.getControladorComanda().receberPagamento(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+                controladorPrincipal.getControladorComanda().receberPagamento(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
             }
             if (e.getActionCommand().equals(jButton6.getActionCommand())) {
                 System.out.print("PERSIST");

@@ -29,6 +29,10 @@ public class ControladorComanda {
         mesas = new Mesa[nMesas];
         this.principal=principal;
     }
+    
+    public void atualizaTabela(){
+        principal.telaPedidosMesa();
+    }
 
     public Mesa getMesaAtual() {
         return mesaAtual;
