@@ -71,73 +71,69 @@ public class ControladorMenu {
         return menu;
     }
     
-    public Produto getComidaMenuException(String titulo) throws ProdutoInexistenteException{
+    public Produto getComidaMenuException(String titulo) throws IndexOutOfBoundsException{
         int qtd = menu.getComidas().size();
         Produto produto = null;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getComidas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
             }
         }
         
-        throw new ProdutoInexistenteException();
+        throw new IndexOutOfBoundsException();
     }
     
     public Produto getComidaMenu(String titulo){
         Produto produto = null;
         try {
            produto = getComidaMenuException(titulo);
-        } catch (ProdutoInexistenteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Produto Inexistente","ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return produto;
     }
     
-    public Produto getBebidaMenuException(String titulo) throws ProdutoInexistenteException{
+    public Produto getBebidaMenuException(String titulo) throws IndexOutOfBoundsException{
         int qtd = menu.getBebidas().size();
         Produto produto = null;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getBebidas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
             }
         }
-
-        return produto;
+        throw new IndexOutOfBoundsException();
     }
     
     public Produto getBebidaMenu(String titulo){
         Produto produto = null;
         try {
            produto = getBebidaMenuException(titulo);
-        } catch (ProdutoInexistenteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Produto Inexistente","ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return produto;
     }
         
-    public Produto getSobremesaMenuException(String titulo) throws ProdutoInexistenteException{
+    public Produto getSobremesaMenuException(String titulo) throws IndexOutOfBoundsException{
         int qtd = menu.getSobremesas().size();
         Produto produto = null;
         for(int i = 0; i <= qtd ; i++){
             produto = menu.getSobremesas().get(i);
             if(produto.getTitulo().equals(titulo)){
-                JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso","WARNING", JOptionPane.WARNING_MESSAGE);
                 return produto;
             }
         }
-        return produto;
+        throw new IndexOutOfBoundsException();
     }
     
       public Produto getSobremesaMenu(String titulo){
         Produto produto = null;
         try {
            produto = getSobremesaMenuException(titulo);
-        } catch (ProdutoInexistenteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Produto Inexistente","ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return produto;
     }

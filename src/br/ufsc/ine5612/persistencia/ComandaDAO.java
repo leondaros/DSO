@@ -26,8 +26,10 @@ public class ComandaDAO {
     
     
     public ComandaDAO() {
-        cacheComandas = new HashMap<>();
+        cacheComandas = new HashMap<Integer, Comanda>();
         load();
+        
+        cacheComandas.values();
     }
     
 
