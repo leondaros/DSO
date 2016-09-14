@@ -31,7 +31,7 @@ public class Comanda implements Serializable{
         this.precoTotal = precoTotal;
     }
     
-    public boolean getHabilitaPedito(){
+    public boolean getHabilitaPedido(){
        return habilitaPedido;
     }
     

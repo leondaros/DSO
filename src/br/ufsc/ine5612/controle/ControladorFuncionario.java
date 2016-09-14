@@ -5,10 +5,9 @@
  */
 package br.ufsc.ine5612.controle;
 
+import br.ufsc.ine5612.apresentacao.LoginJFrame;
 import br.ufsc.ine5612.entidades.Funcionario;
-import br.ufsc.ine5612.persistencia.FuncionarioDAO;
 import java.util.ArrayList;
-import java.util.Set;
 
 /**
  *
@@ -18,9 +17,17 @@ public class ControladorFuncionario {
 //    private FuncionarioDAO funcionarioDAO;
     private ArrayList<Funcionario> funcionarios;
     private ControladorPrincipal principal;
+    
+    private LoginJFrame loginJFrame;
+    
     public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
+        loginJFrame = new LoginJFrame(this);
         criarFuncionarios();
+    }
+    
+    public void telaLogin(){
+        loginJFrame.setVisible(true);
     }
     
     public void adicionarFuncionario(Funcionario funcionario){
@@ -50,10 +57,6 @@ public class ControladorFuncionario {
         return funcionarios;
     }
 
-//    public FuncionarioDAO getFuncionarios() {
-//        return funcionarioDAO;
-//    }
-//
 //    public boolean validaUsuario(String login,String senha){
 //        int verificador = 0;
 //        Integer log = Integer.parseInt(login);
@@ -69,16 +72,18 @@ public class ControladorFuncionario {
 //        return false;
 //    }
 //    
-//    public Funcionario registraUsuario(String nome, String login, String senha, boolean gerente){
-//        Integer log = Integer.parseInt(login);
-//        Set<Integer> chaves = funcionarioDAO.getCache().keySet();
-//        for(Integer chave: chaves){
-//            if(chave.equals(log)){
-//                return null; //login ja existe
-//            }
-//        }
-//        Funcionario funcionario = new Funcionario(nome, login, senha, gerente);
-//        funcionarioDAO.put(funcionario);
-//        return funcionario;
-//    }    
+    public Funcionario validaUsuario(String login, String senha) {
+        int qtd = funcionarios.size();
+        for(int i = 0; i <= qtd ; i++){
+            Funcionario funcionario = funcionarios.get(i);
+            if(funcionario.getLogin().equals(login)){
+                if(funcionario.getSenha().equals(senha)){
+                    return funcionario;
+                }
+            }
+        }
+        return null;
+    }
+    
+ 
 }

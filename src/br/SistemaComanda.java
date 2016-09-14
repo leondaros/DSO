@@ -5,14 +5,13 @@
  */
 package br;
 
-import br.ufsc.ine5612.apresentacao.AdicionaProdutoJFrame;
 import br.ufsc.ine5612.apresentacao.LoginJFrame;
-import br.ufsc.ine5612.apresentacao.MenuJFrame;
 import br.ufsc.ine5612.apresentacao.MesasJFrame;
 import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorFuncionario;
-import br.ufsc.ine5612.entidades.Categoria;
+import br.ufsc.ine5612.controle.ControladorMenu;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Produto;
 
@@ -33,35 +32,45 @@ public class SistemaComanda {
     public static void main(String[] args) {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
+        
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
+        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
+        
+        (new LoginJFrame(controladorFuncionario)).setVisible(true);
 
-        (new LoginJFrame()).setVisible(true);
-        ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-        ControladorComanda controladorComanda = new ControladorComanda();
+        ControladorMenu controladorMenu = new ControladorMenu();
         
-        Produto produto = new Produto("Comida",10.50,Categoria.COMIDA);
-        Produto produto1 = new Produto("Comida1",10.50,Categoria.COMIDA);
-        Produto produto2 = new Produto("Comida2",10.50,Categoria.COMIDA);
-        Produto produto3 = new Produto("Comida3",10.50,Categoria.COMIDA);
-        Produto produto4 = new Produto("Comida4",10.50,Categoria.COMIDA);
+        Produto comida1 = controladorMenu.getComidaMenu("Pizza");
+        Produto comida2 = controladorMenu.getComidaMenu("Lasanha");
+        Produto comida3 = controladorMenu.getComidaMenu("Pizza");
+        Produto comida4 = controladorMenu.getComidaMenu("Macarrão");
+        Produto comida5 = controladorMenu.getComidaMenu("Macarrão");
         
-        Funcionario funcionario = controladorFuncionario.getFuncionarios().get(0);
+        Funcionario funcionario = controladorFuncionario.validaUsuario("junakayama", "meunomeehjulia");
 
         
         controladorComanda.abreMesa(funcionario,1);
+        System.out.println("abriu mesa1");
+        
+        controladorComanda.adicionaPedido(comida1, 1);
+        System.out.println("adiciona produto0");
+        controladorComanda.adicionaPedido(comida2, 1);
+        System.out.println("adiciona produto1");
+        controladorComanda.adicionaPedido(comida3, 1);
+        System.out.println("adiciona produto2");
+        controladorComanda.adicionaPedido(comida4, 1);
+        System.out.println("adiciona produto3");
+        
+        controladorComanda.abreMesa(funcionario,2);
         System.out.println("abriu mesa");
         
-        controladorComanda.adicionaPedido(produto, 1);
-        System.out.println("adiciona produto0");
-        controladorComanda.adicionaPedido(produto1, 2);
-        System.out.println("adiciona produto1");
-        controladorComanda.adicionaPedido(produto2, 1);
-        System.out.println("adiciona produto2");
-        controladorComanda.adicionaPedido(produto3, 3);
+        controladorComanda.adicionaPedido(comida4, 2);
         System.out.println("adiciona produto3");
-        controladorComanda.adicionaPedido(produto4, 4);
+        controladorComanda.adicionaPedido(comida5, 2);
         System.out.println("adiciona produto4");
         
-        controladorComanda.cancelaPedido(produto, 1);
+        controladorComanda.cancelaPedido(comida1, 1);
         System.out.println("removeu produto");
         
 //        for (Produto p : controladorComanda.getMesa().getComanda().getProdutos()) {

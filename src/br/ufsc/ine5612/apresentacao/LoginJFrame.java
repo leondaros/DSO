@@ -5,6 +5,7 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import br.ufsc.ine5612.controle.ControladorFuncionario;
 import java.awt.Container;
 import java.awt.Dimension;
 import br.ufsc.ine5612.controle.ControladorPrincipal;
@@ -39,13 +40,15 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private JButton btAcesso;
     private JButton btCadastra;
-    private ControladorPrincipal principal;
+    
+    private ControladorFuncionario funcionario;
     private GerenciadorEventos gerenciadorEventos;
 
-    public LoginJFrame(ControladorPrincipal principal) {
+    public LoginJFrame(ControladorFuncionario funcionario) {
         initComponents();
         
-        this.principal = principal;
+        this.funcionario = funcionario;
+        
         container = getContentPane();
         gerenciadorEventos = new GerenciadorEventos();
 
@@ -106,7 +109,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         btAcesso.addActionListener(gerenciadorEventos);
 
     }
-
+    
     private class GerenciadorEventos implements ActionListener {
 
         @Override

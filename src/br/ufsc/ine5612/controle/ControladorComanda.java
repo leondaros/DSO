@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package br.ufsc.ine5612.controle;
+import br.ufsc.ine5612.apresentacao.MenuJFrame;
+import br.ufsc.ine5612.apresentacao.MesasJFrame;
+import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.entidades.Comanda;
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Mesa;
@@ -21,10 +24,32 @@ public class ControladorComanda {
     private ComandaDAO comandaDAO;
     
     
+    private MesasJFrame mesasJFrame;
+    private PedidosMesaJFrame pedidosMesaJFrame;
+    private MenuJFrame menuJFrame;
+    
     public ControladorComanda(ControladorPrincipal principal) {
         mesas = new Mesa[nMesas];
         this.principal=principal;
+        
+        mesasJFrame = new MesasJFrame(this);
+        pedidosMesaJFrame = new PedidosMesaJFrame(this);
+        menuJFrame = new MenuJFrame(this);
+        
     }
+    
+    public void telaSelecaoMesa(){
+        mesasJFrame.setVisible(true);
+    }
+    
+    public void telaPedidosMesa(){
+        pedidosMesaJFrame.setVisible(true);
+    }
+    
+    public void telaCardapioMenu(){
+        menuJFrame.setVisible(true);
+    }
+    
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];
     }
@@ -55,12 +80,13 @@ public class ControladorComanda {
     }
     
     public void adicionaPedido(Produto produto, int num) {
-        if(mesas[num-1].getComanda().getHabilitaPedito()){
+        if(mesas[num-1].getComanda().getHabilitaPedido()){
             mesas[num-1].getComanda().getProdutos().add(produto);
             mesas[num-1].getComanda().setPrecoTotal(mesas[num-1].getComanda().getPrecoTotal() + produto.getPreco());
         }
         //se não, a comanda está fechada e não dá
     }
+    
     public void cancelaPedido(Produto p, int num) {
         //apenas gerente
         Comanda c = mesas[num-1].getComanda();
@@ -73,9 +99,10 @@ public class ControladorComanda {
     }
     public void imprimeComanda(int num) {
     }
+    
     public void adicionaCortesia(Funcionario funcionario, Produto produto, int num) {
         if (funcionario.isGerente()) {
-            if(mesas[num-1].getComanda().getHabilitaPedito()){
+            if(mesas[num-1].getComanda().getHabilitaPedido()){
                 mesas[num-1].getComanda().getProdutos().add(produto);
             }
         }
