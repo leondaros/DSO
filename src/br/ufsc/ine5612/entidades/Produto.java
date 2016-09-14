@@ -5,11 +5,13 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author aluno
  */
-public class Produto {
+public class Produto implements Serializable{
     private String titulo;
     private double preco;
     private Categoria c;
@@ -19,6 +21,14 @@ public class Produto {
         this.titulo = titulo;
         this.preco = preco;
         this.c = c;
+    }
+    
+    public Integer getCodigo(){
+        return codigo;
+    }
+    
+    public void setCodigo(Integer codigo){
+        this.codigo = codigo;
     }
 
     public Produto() {
@@ -31,14 +41,6 @@ public class Produto {
 
     public void setC(Categoria c) {
         this.c = c;
-    }
-    
-        public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
     }
     
     public String getTitulo() {

@@ -5,13 +5,14 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author aluno
  */
-public class Comanda {
+public class Comanda implements Serializable{
    private ArrayList<Produto> produtos;
    private double precoTotal;
    private Integer codigo;

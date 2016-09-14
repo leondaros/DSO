@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  *
  * @author aluno
  */
-public class ComandaJFrame extends javax.swing.JFrame {
+public class AdicionaProdutoJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form ComandaJFrame
@@ -29,7 +29,7 @@ public class ComandaJFrame extends javax.swing.JFrame {
     
     
     
-    public ComandaJFrame() {
+    public AdicionaProdutoJFrame() {
         initComponents();
         
         container =  getContentPane();

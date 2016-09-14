@@ -5,6 +5,8 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import br.ufsc.ine5612.controle.ControladorComanda;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -25,44 +27,44 @@ public class MesasJFrame extends javax.swing.JFrame {
      * Creates new form MesasJFrame
      */
     private JLabel labelTitulo;
-    
+
     private Container container;
-    
+
     private JButton buttonMesa1;
     private JButton buttonMesa2;
     private JButton buttonMesa3;
     private JButton buttonMesa4;
-    
+    private ControladorComanda comanda;
     private GerenciadorEventos gerenciadorEventos;
-    
-    public MesasJFrame() {
+
+    public MesasJFrame(ControladorComanda comanda) {
         initComponents();
-        
+        this.comanda = comanda;
         this.container = getContentPane();
         gerenciadorEventos = new GerenciadorEventos();
         inicializarComponentes();
-        
-        setSize(400,220);
+
+        setSize(400, 220);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
+
     }
-     private void inicializarComponentes(){
-         
-         labelTitulo = new JLabel("Seleção de mesas: ");
+
+    private void inicializarComponentes() {
+
+        labelTitulo = new JLabel("Seleção de mesas: ");
         container.add(labelTitulo);
-         
+
         labelTitulo = new JLabel("          ");
         container.add(labelTitulo);
-        
+
         container.setLayout(new FlowLayout());
-        
+
         buttonMesa1 = new JButton("Mesa 1");
         buttonMesa1.setPreferredSize(new Dimension(230, 20));
         buttonMesa1.setActionCommand(buttonMesa1.getText());
         container.add(buttonMesa1);
         buttonMesa1.addActionListener(gerenciadorEventos);
-
 
         buttonMesa2 = new JButton("Mesa 2");
         buttonMesa2.setPreferredSize(new Dimension(230, 20));
@@ -70,13 +72,11 @@ public class MesasJFrame extends javax.swing.JFrame {
         container.add(buttonMesa2);
         buttonMesa2.addActionListener(gerenciadorEventos);
 
-
         buttonMesa3 = new JButton("Mesa 3");
         buttonMesa3.setPreferredSize(new Dimension(230, 20));
         buttonMesa3.setActionCommand(buttonMesa3.getText());
         container.add(buttonMesa3);
         buttonMesa3.addActionListener(gerenciadorEventos);
-
 
         buttonMesa4 = new JButton("Mesa 4");
         buttonMesa4.setPreferredSize(new Dimension(230, 20));
@@ -84,15 +84,32 @@ public class MesasJFrame extends javax.swing.JFrame {
         container.add(buttonMesa4);
         buttonMesa4.addActionListener(gerenciadorEventos);
     }
-     
-     private class GerenciadorEventos implements ActionListener{
-    
+
+    private class GerenciadorEventos implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
-    
+
+            if (e.getActionCommand().equals(buttonMesa1.getActionCommand())) {
+                
+//                principal.mostraCadastraClienteContrato();
+                
+            } else if (e.getActionCommand().equals(buttonMesa2.getActionCommand())) {
+                
+//                principal.mostraCadastraClienteContrato();
+                
+            } else if (e.getActionCommand().equals(buttonMesa3.getActionCommand())) {
+                
+//                principal.mostraCadastraClienteContrato();
+                
+            } else if (e.getActionCommand().equals(buttonMesa4.getActionCommand())) {
+                
+//                principal.mostraCadastraClienteContrato();
+            }
+
         }
-     }
-     
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -112,7 +129,7 @@ public class MesasJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
