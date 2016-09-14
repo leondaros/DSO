@@ -5,15 +5,12 @@
  */
 package br.ufsc.ine5612.controle;
 
-import br.ufsc.ine5612.entidades.Categoria;
 import static br.ufsc.ine5612.entidades.Categoria.BEBIDA;
 import static br.ufsc.ine5612.entidades.Categoria.COMIDA;
 import static br.ufsc.ine5612.entidades.Categoria.SOBREMESA;
 import br.ufsc.ine5612.entidades.Menu;
 import br.ufsc.ine5612.entidades.Produto;
 import br.ufsc.ine5612.excecao.ProdutoInexistenteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -160,10 +157,5 @@ public class ControladorMenu {
         }
         return produto;
     }
-    
-<<<<<<< HEAD
   
-    
-=======
->>>>>>> refs/remotes/junakayama/dev
 }

@@ -56,6 +56,10 @@ public class ControladorComanda {
         menuJFrame.setVisible(true);
     }
     
+    public void fechaTelaCardapioMenu(){
+        menuJFrame.setVisible(false);
+    }
+    
     public Mesa selecionaMesa(int i) {
         return mesas[i - 1];
     }

@@ -28,6 +28,7 @@ public class ControladorFuncionario {
     public ControladorFuncionario(ControladorPrincipal principal) {
         this.funcionarios = new ArrayList<>();
         loginJFrame = new LoginJFrame(this);
+        this.principal=principal;
         criarFuncionarios();
     }
     
@@ -62,11 +63,8 @@ public class ControladorFuncionario {
         return funcionarios;
     }
 
-<<<<<<< HEAD
-    public Funcionario validaUsuario(String login, String senha) {
-=======
+
     public Funcionario validaUsuarioException(String login, String senha) throws SenhaErradaException, LoginInexistenteException, NenhumFuncionarioCadastradoException {
->>>>>>> refs/remotes/junakayama/dev
         int qtd = funcionarios.size();
         int verifica = 0;
         Funcionario funcionario = null;
@@ -95,7 +93,7 @@ public class ControladorFuncionario {
     public Funcionario validaUsuario(String login, String senha){
         Funcionario funcionario = null;
         try {
-            funcionario = validaUsuarioException(login, senha);
+            funcionario = validaUsuarioException(login, senha);  
         } catch (SenhaErradaException | LoginInexistenteException | NenhumFuncionarioCadastradoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }

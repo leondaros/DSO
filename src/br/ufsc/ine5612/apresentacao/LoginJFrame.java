@@ -50,7 +50,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         this.funcionario = funcionario;
         
         container = getContentPane();
-        gerenciadorEventos = new GerenciadorEventos();
+        this.gerenciadorEventos = new GerenciadorEventos();
 
         inicializarComponentes();
 
@@ -116,6 +116,8 @@ public class LoginJFrame extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+               funcionario.validaUsuario(textFieldLogin.getText(),textFieldSenha.getText());
+//             principal.telaMesasSelecao();
             }
 
         }

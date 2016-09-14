@@ -23,7 +23,7 @@ public class ControladorPrincipal {
     private MesasJFrame mesasJFrame;
     
     public ControladorPrincipal(){
-    
+        mesasJFrame=new MesasJFrame(controladorComanda);
     }
     
     public void iniciaPrograma(){
