@@ -41,13 +41,13 @@ public class LoginJFrame extends javax.swing.JFrame {
     private JButton btAcesso;
     private JButton btCadastra;
     
-    private ControladorFuncionario funcionario;
+    private ControladorPrincipal controladorPrincipal;
     private GerenciadorEventos gerenciadorEventos;
 
-    public LoginJFrame(ControladorFuncionario funcionario) {
+    public LoginJFrame(ControladorPrincipal controladorPrincipal) {
         initComponents();
         
-        this.funcionario = funcionario;
+        this.controladorPrincipal = controladorPrincipal;
         
         container = getContentPane();
         this.gerenciadorEventos = new GerenciadorEventos();
@@ -116,8 +116,8 @@ public class LoginJFrame extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
-               funcionario.validaUsuario(textFieldLogin.getText(),textFieldSenha.getText());
-//             principal.telaMesasSelecao();
+               controladorPrincipal.getControladorFuncionario().validaUsuario(textFieldLogin.getText(),textFieldSenha.getText());
+               controladorPrincipal.telaMesasSelecao();
             }
 
         }
