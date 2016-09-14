@@ -5,13 +5,12 @@
  */
 package br;
 
-import br.ufsc.ine5612.apresentacao.AdicionaProdutoJFrame;
 import br.ufsc.ine5612.apresentacao.LoginJFrame;
-import br.ufsc.ine5612.apresentacao.MenuJFrame;
 import br.ufsc.ine5612.apresentacao.MesasJFrame;
 import br.ufsc.ine5612.apresentacao.PedidosMesaJFrame;
 import br.ufsc.ine5612.controle.ControladorComanda;
 import br.ufsc.ine5612.controle.ControladorFuncionario;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
 import br.ufsc.ine5612.entidades.Categoria;
 import br.ufsc.ine5612.entidades.Funcionario;
 import br.ufsc.ine5612.entidades.Produto;
@@ -34,9 +33,13 @@ public class SistemaComanda {
         // TODO code application logic here
 //        (new MesasJFrame()).setVisible(true);
 
-        (new LoginJFrame()).setVisible(true);
-        ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-        ControladorComanda controladorComanda = new ControladorComanda();
+        
+        
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+        ControladorFuncionario controladorFuncionario = new ControladorFuncionario(controladorPrincipal);
+        ControladorComanda controladorComanda = new ControladorComanda(controladorPrincipal);
+        
+        (new LoginJFrame(controladorPrincipal)).setVisible(true);
         
         Produto produto = new Produto("Comida",10.50,Categoria.COMIDA);
         Produto produto1 = new Produto("Comida1",10.50,Categoria.COMIDA);
@@ -52,13 +55,13 @@ public class SistemaComanda {
         
         controladorComanda.adicionaPedido(produto, 1);
         System.out.println("adiciona produto0");
-        controladorComanda.adicionaPedido(produto1, 2);
+        controladorComanda.adicionaPedido(produto1, 1);
         System.out.println("adiciona produto1");
         controladorComanda.adicionaPedido(produto2, 1);
         System.out.println("adiciona produto2");
-        controladorComanda.adicionaPedido(produto3, 3);
+        controladorComanda.adicionaPedido(produto3, 1);
         System.out.println("adiciona produto3");
-        controladorComanda.adicionaPedido(produto4, 4);
+        controladorComanda.adicionaPedido(produto4, 1);
         System.out.println("adiciona produto4");
         
         controladorComanda.cancelaPedido(produto, 1);
