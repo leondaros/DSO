@@ -97,6 +97,7 @@ public class ControladorFuncionario {
         } catch (SenhaErradaException | LoginInexistenteException | NenhumFuncionarioCadastradoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        principal.telaMesasSelecao();
         return funcionario;
     }
  
