@@ -93,23 +93,24 @@ public class MesasJFrame extends javax.swing.JFrame {
             if (e.getActionCommand().equals(buttonMesa1.getActionCommand())) {
 
                 controladorPrincipal.telaPedidosMesa();
-                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
-
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(), Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();
+                
             } else if (e.getActionCommand().equals(buttonMesa2.getActionCommand())) {
-
                 controladorPrincipal.telaPedidosMesa();
-                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(), Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();
 
             } else if (e.getActionCommand().equals(buttonMesa3.getActionCommand())) {
-
                 controladorPrincipal.telaPedidosMesa();
-                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(), Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();
 
             } else if (e.getActionCommand().equals(buttonMesa4.getActionCommand())) {
 
-//                principal.mostraCadastraClienteContrato();
                 controladorPrincipal.telaPedidosMesa();
-                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(),Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getControladorComanda().abreMesa(controladorPrincipal.getControladorFuncionario().getFuncionarioLogado(), Integer.parseInt(buttonMesa4.getText()));
+                controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();
 
             }
 

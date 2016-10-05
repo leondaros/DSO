@@ -28,6 +28,10 @@ public class ControladorComanda {
         mesas = new Mesa[nMesas];
         this.principal=principal;
     }
+    
+    public void atualizaTabela(){
+        principal.telaPedidosMesa();
+    }
 
     public Mesa getMesaAtual() {
         return mesaAtual;
@@ -62,7 +66,6 @@ public class ControladorComanda {
             mesas[num-1].setFuncionario(f);
             mesas[num-1].setOcupada(true);
             Comanda comanda = new Comanda(num);
-            comandaDAO.put(comanda);
             mesas[num-1].setComanda(comanda);
             JOptionPane.showMessageDialog(null, "Mesa aberta com sucesso!","WARNING", JOptionPane.WARNING_MESSAGE);
             return mesas[num-1];
