@@ -59,17 +59,26 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Sobremesa:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Adicionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Adicionar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Adicionar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Menu");
 
@@ -136,8 +145,20 @@ public class MenuJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+                  controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();
+                  controladorPrincipal.fechaTelaCardapioMenu();    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox1.getSelectedItem().toString()),controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        controladorPrincipal.getControladorComanda().adicionaPedido(menu.getBebidaMenu(jComboBox2.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        controladorPrincipal.getControladorComanda().adicionaPedido(menu.getSobremesaMenu(jComboBox3.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void inicializar() {
 
@@ -173,13 +194,13 @@ public class MenuJFrame extends javax.swing.JFrame {
 
             if (e.getActionCommand().equals(jButton1.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getComidaMenu(jComboBox1.getSelectedItem().toString()),controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+            
             } else if (e.getActionCommand().equals(jButton2.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getBebidaMenu(jComboBox2.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+
             } else if (e.getActionCommand().equals(jButton3.getActionCommand())) {
 //                ADD
-                controladorPrincipal.getControladorComanda().adicionaPedido(menu.getSobremesaMenu(jComboBox3.getSelectedItem().toString()), controladorPrincipal.getControladorComanda().getMesaAtual().getNumero());
+
             } else if (e.getActionCommand().equals(jButton4.getActionCommand())) {
 //                ENCERRAR PEDIDO
                   controladorPrincipal.getPedidosMesaJFrame().atualizaTabela();

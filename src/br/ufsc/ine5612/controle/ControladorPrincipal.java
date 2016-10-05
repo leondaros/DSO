@@ -91,6 +91,10 @@ public class ControladorPrincipal {
         menuJFrame.setVisible(false);
     }
     
+    public void fechaTelaPedidosMesa(){
+        pedidosMesaJFrame.setVisible(false);
+    }
+    
     public ControladorComanda getControladorComanda() {
         return controladorComanda;
     }

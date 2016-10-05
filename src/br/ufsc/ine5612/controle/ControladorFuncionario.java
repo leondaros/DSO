@@ -42,10 +42,12 @@ public class ControladorFuncionario {
         Funcionario funcionario2 = new Funcionario("Leon", "leondaros", "euamoanina", true);
         Funcionario funcionario3 = new Funcionario("Jan", "janpierry", "abacaxi", false);
         Funcionario funcionario4 = new Funcionario("Luiza", "lucardoso", "tchkmama", false);
+        Funcionario funcionario5 = new Funcionario("eu", "oi", "oi",true);
         adicionarFuncionario(funcionario1);
         adicionarFuncionario(funcionario2);
         adicionarFuncionario(funcionario3);
         adicionarFuncionario(funcionario4);
+        adicionarFuncionario(funcionario5);
     }
 
     public ControladorPrincipal getPrincipal() {
