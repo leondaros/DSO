@@ -5,20 +5,34 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author aluno
  */
-public class Produto {
-    
+public class Produto implements Serializable{
     private String titulo;
-    private float preco;
+    private double preco;
     private Categoria c;
+    private Integer codigo;
 
-    public Produto(String titulo, float preco, Categoria c) {
+    public Produto(String titulo, double preco, Categoria c) {
         this.titulo = titulo;
         this.preco = preco;
         this.c = c;
+    }
+    
+    public Integer getCodigo(){
+        return codigo;
+    }
+    
+    public void setCodigo(Integer codigo){
+        this.codigo = codigo;
+    }
+
+    public Produto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Categoria getC() {
@@ -29,8 +43,6 @@ public class Produto {
         this.c = c;
     }
     
-    
-    
     public String getTitulo() {
         return titulo;
     }
@@ -39,11 +51,11 @@ public class Produto {
         this.titulo = titulo;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
     

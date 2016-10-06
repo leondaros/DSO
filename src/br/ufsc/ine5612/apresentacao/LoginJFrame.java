@@ -5,6 +5,21 @@
  */
 package br.ufsc.ine5612.apresentacao;
 
+import br.ufsc.ine5612.controle.ControladorFuncionario;
+import java.awt.Container;
+import java.awt.Dimension;
+import br.ufsc.ine5612.controle.ControladorPrincipal;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author aluno
@@ -14,8 +29,98 @@ public class LoginJFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginJFrame
      */
-    public LoginJFrame() {
+    private Container container;
+
+    private JLabel labelTitulo;
+    private JLabel labelLogin;
+    private JLabel labelSenha;
+
+    private JTextField textFieldLogin;
+    private JPasswordField textFieldSenha;
+
+    private JButton btAcesso;
+    private JButton btCadastra;
+    
+    private ControladorPrincipal controladorPrincipal;
+    private GerenciadorEventos gerenciadorEventos;
+
+    public LoginJFrame(ControladorPrincipal controladorPrincipal) {
         initComponents();
+        
+        this.controladorPrincipal = controladorPrincipal;
+        
+        container = getContentPane();
+        this.gerenciadorEventos = new GerenciadorEventos();
+
+        inicializarComponentes();
+
+        setSize(400, 220);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+    }
+
+    private void inicializarComponentes() {
+
+        container.setLayout(new GridBagLayout());
+
+        GridBagConstraints cts = new GridBagConstraints();
+
+        labelTitulo = new JLabel("Darayama - Gerenciamento de Pedidos");
+//        cts.gridx = 0;
+//	cts.gridy = 0;
+        cts.anchor = GridBagConstraints.PAGE_START;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelTitulo, cts);
+
+        labelLogin = new JLabel("Login:");
+        cts.gridx = 0;
+        cts.gridy = 1;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelLogin, cts);
+
+        labelSenha = new JLabel("Senha:");
+        cts.gridx = 0;
+        cts.gridy = 2;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(labelSenha, cts);
+
+        textFieldLogin = new JTextField();
+        textFieldLogin.setPreferredSize(new Dimension(150, 20));
+        cts.gridx = 1;
+        cts.gridy = 1;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(textFieldLogin, cts);
+
+        textFieldSenha = new JPasswordField();
+        textFieldSenha.setPreferredSize(new Dimension(150, 20));
+        cts.gridx = 1;
+        cts.gridy = 2;
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(textFieldSenha, cts);
+
+        btAcesso = new JButton("Login");
+        btAcesso.setActionCommand(btAcesso.getText());
+        cts.gridx = 1;
+        cts.gridy = 3;
+        cts.insets = new Insets(15, 5, 5, 15);
+        cts.fill = GridBagConstraints.BOTH;
+        container.add(btAcesso, cts);
+        btAcesso.addActionListener(gerenciadorEventos);
+
+    }
+    
+    private class GerenciadorEventos implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            if (e.getActionCommand().equals(btAcesso.getActionCommand())) {
+               controladorPrincipal.getControladorFuncionario().validaUsuario(textFieldLogin.getText(),textFieldSenha.getText());
+               controladorPrincipal.telaMesasSelecao();
+            }
+
+        }
     }
 
     /**
@@ -46,37 +151,6 @@ public class LoginJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginJFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

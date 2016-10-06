@@ -5,36 +5,57 @@
  */
 package br.ufsc.ine5612.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author aluno
  */
-public class Comanda {
-    
+public class Comanda implements Serializable{
    private ArrayList<Produto> produtos;
-   private float precoTotal;
-   private boolean contaFechada;
+   private double precoTotal;
+   private Integer codigo;
+   private boolean habilitaPedido;
+   private int numMesa;
 
-    public Comanda() {
-        produtos= new ArrayList<>();
+    public Comanda(int numMesa) {
+        this.produtos= new ArrayList<>();
+        this.habilitaPedido = true;
+        this.numMesa = numMesa;
     }
 
-    public boolean isContaFechada() {
-        return contaFechada;
+    public int getNumMesa() {
+        return numMesa;
     }
 
-    public void setContaFechada(boolean contaFechada) {
-        this.contaFechada = contaFechada;
+    public void setNumMesa(int numMesa) {
+        this.numMesa = numMesa;
     }
-    
-    public float getPrecoTotal() {
+     
+    public double getPrecoTotal() {
         return precoTotal;
     }
+    
 
-    public void setPrecoTotal(float precoTotal) {
+    public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;
+    }
+    
+    public boolean getHabilitaPedido(){
+       return habilitaPedido;
+    }
+    
+    public void setHabilitaPedido(boolean habilitaPedido){
+       this.habilitaPedido = habilitaPedido;
+    }
+    
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
    
     public ArrayList<Produto> getProdutos() {

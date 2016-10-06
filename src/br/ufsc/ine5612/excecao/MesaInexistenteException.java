@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufsc.ine5612.controle;
+package br.ufsc.ine5612.excecao;
 
 /**
  *
- * @author aluno
+ * @author julia
  */
-public class ControladorUsuario {
+public class MesaInexistenteException extends Exception{
     
+    public MesaInexistenteException(){
+        super("Mesa não existente");
+    }
 }
